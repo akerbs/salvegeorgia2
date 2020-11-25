@@ -312,9 +312,9 @@ function Header(props) {
                       className={classes.menuBtn}
                       aria-owns={state2.open2 ? "simple-menu-2" : undefined}
                       aria-haspopup="true"
-                      onClick={()=>{
+                      onClick={() => {
                         navigate("/patient-service")
-                      })}
+                      }}
                       // onMouseOver={handleClick2}
                       onMouseOver={e => {
                         handleMenuOpen2(e)
