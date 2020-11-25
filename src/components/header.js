@@ -234,12 +234,13 @@ function Header(props) {
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar
+          ref={measuredRef}
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShiftToLeft]: openDrawer,
           })}
         >
-          <Toolbar className={classes.toolbar} ref={measuredRef}>
+          <Toolbar className={classes.toolbar}>
             <Grid container spacing={1}>
               <Grid
                 item
