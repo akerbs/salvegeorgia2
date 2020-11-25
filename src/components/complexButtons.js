@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import ButtonBase from "@material-ui/core/ButtonBase"
 import Typography from "@material-ui/core/Typography"
 import { LanguageContext } from "../components/layout"
+import { navigate } from "gatsby"
 
 const images = [
   {
@@ -12,6 +13,7 @@ const images = [
     titleDeu: "Medizinischer Dienst",
     titleEng: "Medical service",
     width: "50%",
+    path: `/patient-service`,
   },
   {
     url: `../../2.jpg`,
@@ -20,6 +22,7 @@ const images = [
     titleDeu: "Ästhetische Medizin",
     titleEng: "Aesthetic medicine",
     width: "50%",
+    path: `/patient-service`,
   },
   {
     url: `../../3.jpg`,
@@ -122,6 +125,9 @@ export default function ComplexButtons() {
     <div className={classes.root}>
       {images.map(image => (
         <ButtonBase
+          onClick={() => {
+            navigate(`${image.path}`)
+          }}
           focusRipple
           key={image.titleEng}
           className={classes.image}
