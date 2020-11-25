@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 import useScrollTrigger from "@material-ui/core/useScrollTrigger"
 import Slide from "@material-ui/core/Slide"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import SelectLanguage from "./selectLanguage"
 import Drawer from "./drawer"
 import withWidth from "@material-ui/core/withWidth"
@@ -312,7 +312,9 @@ function Header(props) {
                       className={classes.menuBtn}
                       aria-owns={state2.open2 ? "simple-menu-2" : undefined}
                       aria-haspopup="true"
-                      // onClick={handleClick2}
+                      onClick={()=>{
+                        navigate("/patient-service")
+                      })}
                       // onMouseOver={handleClick2}
                       onMouseOver={e => {
                         handleMenuOpen2(e)

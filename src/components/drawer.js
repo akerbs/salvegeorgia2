@@ -116,7 +116,7 @@ export default function (props) {
             </Slide> */}
                 </Link>
                 <Link
-                  to="#"
+                  to="/patient-service"
                   className={classes.drawerLink}
                   // activeClassName={classes.active}
                   onClick={props.onClose}
