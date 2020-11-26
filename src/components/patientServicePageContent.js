@@ -9,6 +9,7 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import PatientServiceImages from "./patientServiceImages"
 import Grid from "@material-ui/core/Grid"
+import SubmitForm from "./SubmitForm"
 
 const useStyles = makeStyles(theme => ({
   contentWrapper: {
@@ -126,6 +127,11 @@ export default function PatientServicePageContent() {
           <PatientServiceImages />
         </Grid>
       </Grid>
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "7vh" }}
+      >
+        <SubmitForm />
+      </div>
     </Container>
   )
 }
