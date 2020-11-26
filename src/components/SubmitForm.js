@@ -19,10 +19,6 @@ import InputLabel from "@material-ui/core/InputLabel"
 const window = require("global/window")
 
 const foolWidth = window.innerWidth <= 599 ? 288 : 380
-const halfFoolWidth = foolWidth / 2
-const selectMenuWidth = window.innerWidth <= 599 ? 288 : 348
-const lockIconMarginLeft = window.innerWidth <= 599 ? "350%" : "470%"
-const paymentCardsMarginRight = window.innerWidth <= 599 ? "11%" : "8%"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -96,7 +92,7 @@ const useStyles = makeStyles(theme => ({
   },
   selectX: {
     "& li": {
-      fontSize: "90%",
+      fontSize: "0.8rem",
     },
   },
 }))

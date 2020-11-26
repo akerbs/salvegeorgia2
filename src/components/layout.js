@@ -10,9 +10,9 @@ import "./layout.css"
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: "#fff",
-    maxWidth: "100vw",
-    margin: 0,
-    padding: 0,
+    // maxWidth: "100vw",
+    // margin: 0,
+    // padding: 0,
     // overflow: "hidden",
   },
 }))
@@ -21,16 +21,6 @@ export const LanguageContext = createContext()
 export const HeaderHeightContext = createContext()
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   const classes = useStyles()
 
   const [actLanguage, setActLanguage] = useState("")
