@@ -26,7 +26,7 @@ import Paper from "@material-ui/core/Paper"
 import MenuList from "@material-ui/core/MenuList"
 import Backdrop from "@material-ui/core/Backdrop"
 import { LanguageContext } from "./layout"
-import { HeaderHeightContext } from "./layout"
+// import { HeaderHeightContext } from "./layout"
 
 const document = require("global/document")
 const window = require("global/window")
