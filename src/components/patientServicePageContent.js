@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import ComplexButtons from "./complexButtons"
 import { LanguageContext } from "./layout"
-import { HeaderHeightContext } from "./layout"
+// import { HeaderHeightContext } from "./layout"
 import Typography from "@material-ui/core/Typography"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
@@ -25,14 +25,14 @@ const useStyles = makeStyles(theme => ({
 export default function PatientServicePageContent() {
   const classes = useStyles()
   const { actLanguage } = useContext(LanguageContext)
-  const { headerHeight } = useContext(HeaderHeightContext)
-  const contentWrapperMarginTop = headerHeight * 2
+  // const { headerHeight } = useContext(HeaderHeightContext)
+  // const contentWrapperMarginTop = headerHeight * 2
 
   return (
     <Container
       maxWidth="lg"
       className={classes.contentWrapper}
-      style={{ marginTop: contentWrapperMarginTop }}
+      style={{ marginTop: "20vh" }}
     >
       <Typography
         variant="h6"
