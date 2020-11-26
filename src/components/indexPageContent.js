@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles"
 
 import ComplexButtons from "./complexButtons"
 import { LanguageContext } from "./layout"
-// import { HeaderHeightContext } from "./layout"
+import { HeaderHeightContext } from "./layout"
 
 const useStyles = makeStyles(theme => ({
   contentWrapper: {
@@ -19,10 +19,10 @@ const useStyles = makeStyles(theme => ({
 export default function IndexPageContent() {
   const classes = useStyles()
   const { actLanguage } = useContext(LanguageContext)
-  // const { headerHeight } = useContext(HeaderHeightContext)
+  const { headerHeight } = useContext(HeaderHeightContext)
 
   return (
-    <div className={classes.contentWrapper} style={{ marginTop: "10vh" }}>
+    <div className={classes.contentWrapper} style={{ marginTop: headerHeight }}>
       {/* <div id="top" style={{ margin: 0, padding: 0 }}></div> */}
       <ComplexButtons />
     </div>

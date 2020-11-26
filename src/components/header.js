@@ -26,7 +26,7 @@ import Paper from "@material-ui/core/Paper"
 import MenuList from "@material-ui/core/MenuList"
 import Backdrop from "@material-ui/core/Backdrop"
 import { LanguageContext } from "./layout"
-// import { HeaderHeightContext } from "./layout"
+import { HeaderHeightContext } from "./layout"
 
 const document = require("global/document")
 const window = require("global/window")
@@ -222,19 +222,19 @@ function Header(props) {
       anchorEl4: null,
     })
   }
-  // const { handleHeaderHeightChange } = useContext(HeaderHeightContext)
-  // const measuredRef = React.useCallback(node => {
-  //   if (node !== null) {
-  //     handleHeaderHeightChange(node.getBoundingClientRect().height)
-  //   }
-  // }, [])
+  const { handleHeaderHeightChange } = useContext(HeaderHeightContext)
+  const measuredRef = React.useCallback(node => {
+    if (node !== null) {
+      handleHeaderHeightChange(node.getBoundingClientRect().height)
+    }
+  }, [])
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar
-          // ref={measuredRef}
+          ref={measuredRef}
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShiftToLeft]: openDrawer,

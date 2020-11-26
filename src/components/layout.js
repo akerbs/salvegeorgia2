@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const LanguageContext = createContext()
-// export const HeaderHeightContext = createContext()
+export const HeaderHeightContext = createContext()
 
 const Layout = ({ children }) => {
   const classes = useStyles()
@@ -47,11 +47,11 @@ const Layout = ({ children }) => {
     setActLanguage(event.target.value)
   }
 
-  // const [headerHeight, setHeaderHeight] = useState(null)
+  const [headerHeight, setHeaderHeight] = useState(null)
 
-  // function handleHeaderHeightChange(value) {
-  //   if (!!value) setHeaderHeight(value)
-  // }
+  function handleHeaderHeightChange(value) {
+    if (!!value) setHeaderHeight(value)
+  }
 
   // useEffect(() => {
   //   alert(`headerHeight:   ${Math.round(headerHeight)}px`)
@@ -66,14 +66,14 @@ const Layout = ({ children }) => {
           handleLanguageChange,
         }}
       >
-        {/* <HeaderHeightContext.Provider
+        <HeaderHeightContext.Provider
           value={{
             headerHeight,
             handleHeaderHeightChange,
           }}
-        > */}
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        {/* </HeaderHeightContext.Provider> */}
+        >
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </HeaderHeightContext.Provider>
       </LanguageContext.Provider>
     </div>
   )

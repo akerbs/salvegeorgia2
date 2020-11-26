@@ -14,42 +14,7 @@ const window = require("global/window")
 
 // const footerPaddingTop = window.innerWidth <= 599 ? "20%" : "5%"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-    // maxWidth: "100%",
-
-    padding: "5% 2% 0% 7%",
-
-    [theme.breakpoints.down("sm")]: {
-      padding: "18% 5% 0% 5%",
-    },
-  },
-  // content: {
-  //   marginTop: footerMarginTop,
-  //   color: "black",
-  // },
-
-  title: {
-    marginBottom: 20,
-  },
-
-  link: {
-    textDecoration: "none",
-    color: "black",
-    "&:hover": {
-      color: "white",
-    },
-  },
-  lastLine: {
-    textAlign: "center",
-    minHeight: "50px",
-    marginTop: "5% ",
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "15% ",
-    },
-  },
-}))
+const useStyles = makeStyles(theme => ({}))
 
 export default function Footer() {
   const classes = useStyles()
