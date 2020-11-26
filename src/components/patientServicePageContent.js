@@ -128,7 +128,11 @@ export default function PatientServicePageContent() {
         </Grid>
       </Grid>
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "7vh" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "8vh 0",
+        }}
       >
         <SubmitForm />
       </div>

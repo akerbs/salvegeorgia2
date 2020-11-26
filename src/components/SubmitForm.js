@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   textfield: {
-    marginBottom: "1%",
+    // marginBottom: "1%",
     "& .MuiOutlinedInput-inputMarginDense": {
       // padding: "8px 12px",
       margin: 0,
@@ -61,64 +61,6 @@ const useStyles = makeStyles(theme => ({
   textfieldFullWidth: {
     width: foolWidth,
   },
-  textfieldFullWidthPartTop: {
-    // paddingBottom: "-0.25%",
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRadius: `4px 4px 0 0 `,
-        // borderWidth: "1px 1px  0 1px ",
-        borderBottomColor: "transparent",
-      },
-      "&:hover fieldset": {
-        borderBottomColor: "transparent",
-      },
-      "&.Mui-focused fieldset": {
-        borderBottomColor: theme.palette.primary.main,
-      },
-    },
-  },
-  textfieldFullWidthBetween: {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRadius: 0,
-        borderBottomColor: "transparent",
-        // borderWidth: "0 1px 1px 1px",
-      },
-      "&:hover fieldset": {
-        borderBottomColor: "transparent",
-      },
-      "&.Mui-focused fieldset": {
-        borderBottomColor: theme.palette.primary.main,
-      },
-    },
-  },
-  textfieldHalfLeft: {
-    width: halfFoolWidth,
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRadius: `0 0 0 4px`,
-        // borderTopColor: "transparent",
-        borderRightColor: "transparent",
-        // borderWidth: "0 0 1px 1px",
-      },
-      "&:hover fieldset": {
-        borderRightColor: "transparent",
-      },
-      "&.Mui-focused fieldset": {
-        borderRightColor: theme.palette.primary.main,
-      },
-    },
-  },
-  textfieldHalfRight: {
-    width: halfFoolWidth,
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRadius: `0 0 4px 0`,
-        // borderTopColor: "transparent",
-        // borderWidth: "0 1px 1px 1px",
-      },
-    },
-  },
 
   textfieldError: {
     "& .MuiOutlinedInput-root": {
@@ -139,47 +81,7 @@ const useStyles = makeStyles(theme => ({
       color: "black",
     },
   },
-  textFieldLeftError: {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRightColor: "transparent",
-      },
-      "&:hover fieldset": {
-        borderRightColor: "transparent",
-      },
-    },
-  },
-  textFieldLeftErrorReset: {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRightColor: "rgb(220,39,39)",
-      },
-      "&:hover fieldset": {
-        borderRightColor: "rgb(220,39,39)",
-      },
-    },
-  },
 
-  textFieldBetweenError: {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderBottomColor: "transparent",
-      },
-      "&:hover fieldset": {
-        borderBottomColor: "transparent",
-      },
-    },
-  },
-  textFieldBetweenErrorReset: {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderBottomColor: "rgb(220,39,39)",
-      },
-      "&:hover fieldset": {
-        borderBottomColor: "rgb(220,39,39)",
-      },
-    },
-  },
   errorMsg: {
     fontSize: 13,
     fontWeight: "500",
@@ -195,7 +97,7 @@ const useStyles = makeStyles(theme => ({
   },
   selectX: {
     "& li": {
-      fontSize: 16,
+      fontSize: "90%",
     },
   },
 }))
@@ -477,28 +379,38 @@ export default function (props) {
             errorForm.sex_grad_select && classes.textfieldError
           )}
         >
-          <InputLabel
-            id="demo-simple-select-label"
-            margin="dense"
-            style={{ fontSize: 16, color: "#a1a1a1" }}
-          >
-            {actLanguage === "DEU"
-              ? "Anrede auswählen"
-              : actLanguage === "RUS"
-              ? "Выберите приветствие"
-              : actLanguage === "GEO"
-              ? "აირჩიეთ მისალმება"
-              : actLanguage === "ENG"
-              ? "Select a salutation"
-              : "Select a salutation"}
-          </InputLabel>
-          <Select
+          <TextField
+            select
+            label={
+              form.sex_grad_select === false ||
+              form.sex_grad_select === "undefined" ||
+              !form.sex_grad_select
+                ? actLanguage === "DEU"
+                  ? "Anrede auswählen"
+                  : actLanguage === "RUS"
+                  ? "Выберите приветствие"
+                  : actLanguage === "GEO"
+                  ? "აირჩიეთ მისალმება"
+                  : actLanguage === "ENG"
+                  ? "Select a salutation"
+                  : "Select a salutation"
+                : ""
+            }
+            variant="outlined"
+            InputLabelProps={{
+              shrink: false,
+              style: { fontSize: 16, color: "#a1a1a1" },
+            }}
             classes={{
               root: classes.selectRoot,
               select: classes.select,
               selectMenu: classes.selectMenu,
             }}
-            MenuProps={{ classes: { paper: classes.selectX } }}
+            SelectProps={{
+              MenuProps: {
+                className: classes.selectX,
+              },
+            }}
             size="small"
             id="sex_grad_select"
             name="sex_grad_select"
@@ -506,13 +418,34 @@ export default function (props) {
             value={form.sex_grad_select}
             onChange={changeHandler}
           >
-            <MenuItem value={"AU"} key={"AU"}>
-              Австралия
+            <MenuItem value={"Mr."} key={"Mr."}>
+              {actLanguage === "DEU"
+                ? "Herr"
+                : actLanguage === "RUS"
+                ? "Г-н."
+                : actLanguage === "GEO"
+                ? "ბატონი"
+                : actLanguage === "ENG"
+                ? "Mr."
+                : "Mr."}
             </MenuItem>
-            <MenuItem value={"AT"} key={"AT"}>
-              Австрия
+            <MenuItem value={"Mrs."} key={"Mrs."}>
+              {actLanguage === "DEU"
+                ? "Frau"
+                : actLanguage === "RUS"
+                ? "Г-жа."
+                : actLanguage === "GEO"
+                ? "ქალბატონი"
+                : actLanguage === "ENG"
+                ? "Mrs."
+                : "Mrs."}
             </MenuItem>
-          </Select>
+            {actLanguage === "ENG" && (
+              <MenuItem value={"Ms."} key={"Ms."}>
+                Ms.
+              </MenuItem>
+            )}
+          </TextField>
         </FormControl>
 
         <FormControl
@@ -641,28 +574,38 @@ export default function (props) {
             errorForm.service_select && classes.textfieldError
           )}
         >
-          <InputLabel
-            id="demo-simple-select-label"
-            margin="dense"
-            style={{ fontSize: 16, color: "#a1a1a1" }}
-          >
-            {actLanguage === "DEU"
-              ? "Service auswählen"
-              : actLanguage === "RUS"
-              ? "Выберите услугу"
-              : actLanguage === "GEO"
-              ? "აირჩიეთ მომსახურება"
-              : actLanguage === "ENG"
-              ? "Select a service"
-              : "Select a service"}
-          </InputLabel>
-          <Select
+          <TextField
+            select
+            label={
+              form.service_select === false ||
+              form.service_select === "undefined" ||
+              !form.service_select
+                ? actLanguage === "DEU"
+                  ? "Service auswählen"
+                  : actLanguage === "RUS"
+                  ? "Выберите услугу"
+                  : actLanguage === "GEO"
+                  ? "აირჩიეთ მომსახურება"
+                  : actLanguage === "ENG"
+                  ? "Select a service"
+                  : "Select a service"
+                : ""
+            }
+            variant="outlined"
+            InputLabelProps={{
+              shrink: false,
+              style: { fontSize: 16, color: "#a1a1a1" },
+            }}
+            SelectProps={{
+              MenuProps: {
+                className: classes.selectX,
+              },
+            }}
             classes={{
               root: classes.selectRoot,
               select: classes.select,
               selectMenu: classes.selectMenu,
             }}
-            MenuProps={{ classes: { paper: classes.selectX } }}
             size="small"
             id="service_select"
             name="service_select"
@@ -670,13 +613,82 @@ export default function (props) {
             value={form.service_select}
             onChange={changeHandler}
           >
-            <MenuItem value={"BY"} key={"BY"}>
-              Беларусь
+            <MenuItem value={"Plastic surgery"} key={"Plastic surgery"}>
+              {actLanguage === "DEU"
+                ? "Plastische Chirurgie"
+                : actLanguage === "GEO"
+                ? "პლასტიკური ქირურგია"
+                : actLanguage === "RUS"
+                ? " Пластическая хирургия"
+                : actLanguage === "ENG"
+                ? "Plastic surgery"
+                : "Plastic surgery"}
             </MenuItem>
-            <MenuItem value={"BZ"} key={"BZ"}>
-              Белиз
+            <MenuItem
+              value={"Cosmetology procedures"}
+              key={"Cosmetology procedures"}
+            >
+              {actLanguage === "DEU"
+                ? "Kosmetologische Verfahren"
+                : actLanguage === "GEO"
+                ? "კოსმეტოლოგიური პროცედურები"
+                : actLanguage === "RUS"
+                ? "Косметологические процедуры"
+                : actLanguage === "ENG"
+                ? "Cosmetology procedures"
+                : "Cosmetology procedures"}
             </MenuItem>
-          </Select>
+            <MenuItem value={"Dental implants"} key={"Dental implants"}>
+              {actLanguage === "DEU"
+                ? "Zahnimplantate"
+                : actLanguage === "GEO"
+                ? "კბილის იმპლანტები"
+                : actLanguage === "RUS"
+                ? "Зубные имплантаты"
+                : actLanguage === "ENG"
+                ? "Dental implants"
+                : "Dental implants"}
+            </MenuItem>
+            <MenuItem value={"Massage"} key={"Massage"}>
+              {actLanguage === "DEU"
+                ? "Massage"
+                : actLanguage === "GEO"
+                ? "მასაჟი"
+                : actLanguage === "RUS"
+                ? "Массаж"
+                : actLanguage === "ENG"
+                ? "Massage"
+                : "Massage"}
+            </MenuItem>
+            <MenuItem
+              value={"Balneological procedures"}
+              key={"Balneological procedures"}
+            >
+              {actLanguage === "DEU"
+                ? "Balneologische Verfahren"
+                : actLanguage === "GEO"
+                ? "ბალნეოლოგიური პროცედურები"
+                : actLanguage === "RUS"
+                ? "Бальнеологические процедуры"
+                : actLanguage === "ENG"
+                ? "Balneological procedures"
+                : "Balneological procedures"}
+            </MenuItem>
+            <MenuItem
+              value={"In Vitro Fertilization"}
+              key={"In Vitro Fertilization"}
+            >
+              {actLanguage === "DEU"
+                ? "In-vitro-Fertilisation"
+                : actLanguage === "GEO"
+                ? "ინვიტრო განაყოფიერება"
+                : actLanguage === "RUS"
+                ? "Экстракорпоральное оплодотворение"
+                : actLanguage === "ENG"
+                ? "In Vitro Fertilization"
+                : "In Vitro Fertilization"}
+            </MenuItem>
+          </TextField>
         </FormControl>
 
         <span className={classes.errorMsg}>
