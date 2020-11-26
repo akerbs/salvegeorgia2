@@ -222,19 +222,19 @@ function Header(props) {
       anchorEl4: null,
     })
   }
-  const { handleHeaderHeightChange } = useContext(HeaderHeightContext)
-  const measuredRef = React.useCallback(node => {
-    if (node !== null) {
-      handleHeaderHeightChange(node.getBoundingClientRect().height)
-    }
-  }, [])
+  // const { handleHeaderHeightChange } = useContext(HeaderHeightContext)
+  // const measuredRef = React.useCallback(node => {
+  //   if (node !== null) {
+  //     handleHeaderHeightChange(node.getBoundingClientRect().height)
+  //   }
+  // }, [])
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar
-          ref={measuredRef}
+          // ref={measuredRef}
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShiftToLeft]: openDrawer,
