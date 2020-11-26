@@ -189,7 +189,7 @@ const useStyles = makeStyles(theme => ({
   select: {},
   selectMenu: {
     width: selectMenuWidth,
-    padding: "2.109% 0 2.109% 3%",
+    padding: "10.5px 14px",
     margin: 0,
     fontSize: 16,
   },
@@ -444,27 +444,25 @@ export default function (props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {window.innerWidth > 600 && (
-        <Typography
-          variant="body1"
-          style={{
-            fontWeight: 600,
-            color: "#303030",
-            textAlign: "center",
-            margin: "5% 0",
-          }}
-        >
-          {actLanguage === "DEU"
-            ? "Hinterlassen Sie eine Anfrage"
-            : actLanguage === "RUS"
-            ? "Оставить заявку"
-            : actLanguage === "GEO"
-            ? "დატოვეთ თხოვნა"
-            : actLanguage === "ENG"
-            ? "Leave a request"
-            : "Leave a request"}
-        </Typography>
-      )}
+      <Typography
+        variant="body1"
+        style={{
+          fontWeight: 600,
+          color: "#303030",
+          textAlign: "center",
+          margin: "5% 0",
+        }}
+      >
+        {actLanguage === "DEU"
+          ? "Hinterlassen Sie eine Anfrage"
+          : actLanguage === "RUS"
+          ? "Оставить заявку"
+          : actLanguage === "GEO"
+          ? "დატოვეთ თხოვნა"
+          : actLanguage === "ENG"
+          ? "Leave a request"
+          : "Leave a request"}
+      </Typography>
 
       <form
         onSubmit={onSubmit}
@@ -475,7 +473,7 @@ export default function (props) {
           variant="outlined"
           className={clsx(
             classes.textfield,
-            // classes.textfieldHalfRight,
+            classes.textfieldFullWidth,
             errorForm.sex_grad_select && classes.textfieldError
           )}
         >
