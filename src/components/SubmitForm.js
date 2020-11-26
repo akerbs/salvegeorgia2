@@ -87,11 +87,10 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "500",
     color: "rgb(220,39,39)",
   },
-  selectRoot: {},
-  select: {},
+
   selectMenu: {
-    width: selectMenuWidth,
-    padding: "10.5px 14px",
+    // width: selectMenuWidth,
+    // padding: "10.5px 14px",
     margin: 0,
     fontSize: 16,
   },
@@ -401,15 +400,13 @@ export default function (props) {
               shrink: false,
               style: { fontSize: 16, color: "#a1a1a1" },
             }}
-            classes={{
-              root: classes.selectRoot,
-              select: classes.select,
-              selectMenu: classes.selectMenu,
-            }}
             SelectProps={{
               MenuProps: {
                 className: classes.selectX,
               },
+            }}
+            InputProps={{
+              className: classes.selectMenu,
             }}
             size="small"
             id="sex_grad_select"
@@ -601,10 +598,8 @@ export default function (props) {
                 className: classes.selectX,
               },
             }}
-            classes={{
-              root: classes.selectRoot,
-              select: classes.select,
-              selectMenu: classes.selectMenu,
+            InputProps={{
+              className: classes.selectMenu,
             }}
             size="small"
             id="service_select"
