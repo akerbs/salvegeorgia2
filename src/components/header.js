@@ -195,7 +195,7 @@ function Header(props) {
                     color: "white",
                   }}
                 >
-                  <Link to="/" className="link">
+                  <Link to="/" className="link" style={{ color: "white" }}>
                     <b> salvegeorgia.com</b>
                   </Link>
                 </Typography>
