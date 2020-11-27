@@ -1,0 +1,27 @@
+.drawer {
+  width: 450px;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 599px) {
+  .drawer {
+    width: drawer100vw;
+  }
+}
+
+.drawerPaper {
+  width: 450px;
+}
+@media screen and (max-width: 599px) {
+  .drawerPaper {
+    width: drawer100vw;
+  }
+}
+
+.drawerLink {
+  text-decoration: none;
+  color: #0798f2;
+}
+.drawerLink:hover {
+  text-decoration: none;
+  color: #38acf4;
+}

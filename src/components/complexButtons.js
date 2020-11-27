@@ -4,6 +4,7 @@ import ButtonBase from "@material-ui/core/ButtonBase"
 import Typography from "@material-ui/core/Typography"
 import { LanguageContext } from "../components/layout"
 import { navigate } from "gatsby"
+import "./complexButtons.css"
 
 const images = [
   {

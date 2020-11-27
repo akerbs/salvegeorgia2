@@ -1,58 +1,23 @@
 import React, { useState, useContext } from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { useTheme } from "@material-ui/core/styles"
 import Drawer from "@material-ui/core/Drawer"
 import Typography from "@material-ui/core/Typography"
 import IconButton from "@material-ui/core/IconButton"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-import ChevronRightIcon from "@material-ui/icons/ChevronRight"
 import CloseIcon from "@material-ui/icons/Close"
-
 import Slide from "@material-ui/core/Slide"
 import Fade from "@material-ui/core/Fade"
-// import { LanguageContext } from "../context/LanguageContext"
 import { LanguageContext } from "../components/layout"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import { Link, navigate } from "gatsby"
+import "./drawer.css"
 
 const window = require("global/window")
 
-const drawerWidth = window.innerWidth <= 599 ? "100vw" : 450
-
-const useStyles = makeStyles(theme => ({
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  drawerLink: {
-    textDecoration: "none",
-    color: theme.palette.primary.main,
-    // width: "100vw",
-    "&:hover": {
-      color: theme.palette.primary.light,
-    },
-  },
-  cartTitle: {
-    flexGrow: 1,
-  },
-}))
-
 export default function (props) {
   const { actLanguage } = useContext(LanguageContext)
-  const classes = useStyles()
   const theme = useTheme()
 
   return (
@@ -66,11 +31,20 @@ export default function (props) {
         anchor="right"
         open={props.open}
         classes={{
-          paperAnchorRight: classes.drawerPaper,
-          root: classes.drawer,
+          paperAnchorRight: "drawerPaper",
+          root: "drawer",
         }}
       >
-        <div className={classes.drawerHeader}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            padding: theme.spacing(0, 1),
+            // necessary for content to be below app bar
+            ...theme.mixins.toolbar,
+            justifyContent: "flex-end",
+          }}
+        >
           <Slide in={props.open} timeout={800} direction="up">
             <div>
               <Fade in={props.open} timeout={1600}>
@@ -87,7 +61,7 @@ export default function (props) {
               <List>
                 <Link
                   to="#"
-                  className={classes.drawerLink}
+                  className="drawerLink"
                   // activeClassName={classes.active}
                   onClick={props.onClose}
                 >
@@ -117,7 +91,7 @@ export default function (props) {
                 </Link>
                 <Link
                   to="/patient-service"
-                  className={classes.drawerLink}
+                  className="drawerLink"
                   // activeClassName={classes.active}
                   onClick={props.onClose}
                 >
@@ -147,7 +121,7 @@ export default function (props) {
                 </Link>
                 <Link
                   to="#"
-                  className={classes.drawerLink}
+                  className="drawerLink"
                   // activeClassName={classes.active}
                   onClick={props.onClose}
                 >
@@ -178,7 +152,7 @@ export default function (props) {
 
                 <Link
                   to="#"
-                  className={classes.drawerLink}
+                  className="drawerLink"
                   // activeClassName={classes.active}
                   onClick={props.onClose}
                 >
