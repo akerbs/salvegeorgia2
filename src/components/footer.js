@@ -14,7 +14,7 @@ import { LanguageContext } from "./layout"
 import "./footer.css"
 const window = require("global/window")
 const footerPadding =
-  window.innerWidth <= 959 ? "18% 10% 0% 10%" : "5% 2% 0% 7%"
+  window.innerWidth <= 959 ? "18% 10% 0% 10%" : "7% 2% 0% 7%"
 const lastLineMarginTop = window.innerWidth <= 959 ? "15% " : "5% "
 
 export default function Footer() {
