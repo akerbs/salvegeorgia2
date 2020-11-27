@@ -10,7 +10,7 @@ export default function IndexPageContent() {
   return (
     <div style={{ marginTop: headerHeight, padding: 0 }}>
       {/* <div id="top" style={{ margin: 0, padding: 0 }}></div> */}
-      <ComplexButtons />
+      {/* <ComplexButtons /> */}
     </div>
   )
 }
