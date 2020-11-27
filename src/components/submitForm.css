@@ -1,6 +1,11 @@
 .root {
   width: 380px;
   margin: 0 auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 @media screen and (max-width: 599px) {
   .root {
@@ -8,12 +13,27 @@
   }
 }
 
+.btn {
+  text-transform: none;
+  width: 360px;
+}
+
+.menuItem li {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 599px) {
+  .btn {
+    width: 268px;
+  }
+}
+
 .textfield {
-  width: 380px;
+  width: 360px;
 }
 @media screen and (max-width: 599px) {
   .textfield {
-    width: 288px;
+    width: 268px;
   }
 }
 

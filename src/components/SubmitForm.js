@@ -318,15 +318,16 @@ export default function (props) {
             }}
             SelectProps={{
               MenuProps: {
-                style: {
-                  "& li": {
-                    fontSize: "0.8rem",
-                  },
-                },
+                // style: {
+                //   "& li": {
+                //     fontSize: "0.8rem",
+                //   },
+                // },
+                className: "menuItem",
               },
             }}
             InputProps={{
-              style: { margin: 0, fontSize: 16 },
+              style: { margin: 0, fontSize: 16, textAlign: "start" },
             }}
             size="small"
             id="sex_grad_select"
@@ -335,7 +336,7 @@ export default function (props) {
             value={form.sex_grad_select}
             onChange={changeHandler}
           >
-            <MenuItem value={"Mr."} key={"Mr."}>
+            <MenuItem value={"Mr."} key={"Mr."} className="menuItem">
               {actLanguage === "DEU"
                 ? "Herr"
                 : actLanguage === "RUS"
@@ -346,7 +347,7 @@ export default function (props) {
                 ? "Mr."
                 : "Mr."}
             </MenuItem>
-            <MenuItem value={"Mrs."} key={"Mrs."}>
+            <MenuItem value={"Mrs."} key={"Mrs."} className="menuItem">
               {actLanguage === "DEU"
                 ? "Frau"
                 : actLanguage === "RUS"
@@ -358,7 +359,7 @@ export default function (props) {
                 : "Mrs."}
             </MenuItem>
             {actLanguage === "ENG" && (
-              <MenuItem value={"Ms."} key={"Ms."}>
+              <MenuItem value={"Ms."} key={"Ms."} className="menuItem">
                 Ms.
               </MenuItem>
             )}
@@ -501,15 +502,16 @@ export default function (props) {
             }}
             SelectProps={{
               MenuProps: {
-                style: {
-                  "& li": {
-                    fontSize: "0.8rem",
-                  },
-                },
+                // style: {
+                //   "& li": {
+                //     fontSize: "0.8rem",
+                //   },
+                // },
+                className: "menuItem",
               },
             }}
             InputProps={{
-              style: { margin: 0, fontSize: 16 },
+              style: { margin: 0, fontSize: 16, textAlign: "start" },
             }}
             size="small"
             id="service_select"
@@ -518,7 +520,11 @@ export default function (props) {
             value={form.service_select}
             onChange={changeHandler}
           >
-            <MenuItem value={"Plastic surgery"} key={"Plastic surgery"}>
+            <MenuItem
+              value={"Plastic surgery"}
+              key={"Plastic surgery"}
+              className="menuItem"
+            >
               {actLanguage === "DEU"
                 ? "Plastische Chirurgie"
                 : actLanguage === "GEO"
@@ -532,6 +538,7 @@ export default function (props) {
             <MenuItem
               value={"Cosmetology procedures"}
               key={"Cosmetology procedures"}
+              className="menuItem"
             >
               {actLanguage === "DEU"
                 ? "Kosmetologische Verfahren"
@@ -543,7 +550,11 @@ export default function (props) {
                 ? "Cosmetology procedures"
                 : "Cosmetology procedures"}
             </MenuItem>
-            <MenuItem value={"Dental implants"} key={"Dental implants"}>
+            <MenuItem
+              value={"Dental implants"}
+              key={"Dental implants"}
+              className="menuItem"
+            >
               {actLanguage === "DEU"
                 ? "Zahnimplantate"
                 : actLanguage === "GEO"
@@ -554,7 +565,7 @@ export default function (props) {
                 ? "Dental implants"
                 : "Dental implants"}
             </MenuItem>
-            <MenuItem value={"Massage"} key={"Massage"}>
+            <MenuItem value={"Massage"} key={"Massage"} className="menuItem">
               {actLanguage === "DEU"
                 ? "Massage"
                 : actLanguage === "GEO"
@@ -568,6 +579,7 @@ export default function (props) {
             <MenuItem
               value={"Balneological procedures"}
               key={"Balneological procedures"}
+              className="menuItem"
             >
               {actLanguage === "DEU"
                 ? "Balneologische Verfahren"
@@ -582,6 +594,7 @@ export default function (props) {
             <MenuItem
               value={"In Vitro Fertilization"}
               key={"In Vitro Fertilization"}
+              className="menuItem"
             >
               {actLanguage === "DEU"
                 ? "In-vitro-Fertilisation"
@@ -610,14 +623,14 @@ export default function (props) {
         <br />
 
         <Button
-          fullWidth
+          // fullWidth
           color="primary"
           id="submit"
           name="submit"
           type="submit"
           variant="contained"
           disabled={loading}
-          style={{ textTransform: "none" }}
+          className="btn"
           endIcon={
             <SendIcon
               style={{
