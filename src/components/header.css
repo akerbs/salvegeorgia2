@@ -19,3 +19,7 @@
   font-weight: bold;
   color: #0798f2;
 }
+
+.hide {
+  display: none;
+}

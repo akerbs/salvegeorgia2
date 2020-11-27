@@ -1,0 +1,74 @@
+.image {
+  position: relative;
+  height: 50vh;
+}
+.image:hover,
+.focusVisible {
+  z-index: 1;
+}
+.image:hover,
+.focusVisible .imageBackdrop {
+  opacity: 0.15;
+}
+.image:hover,
+.focusVisible .imageMarked {
+  opacity: 0;
+}
+.image:hover,
+.focusVisible .imageTitle {
+  border: 4px solid transparent;
+}
+
+@media screen and (max-width: 599px) {
+  .image {
+    width: 100% !important;
+    height: 20vh;
+  }
+}
+
+.focusVisible {
+}
+
+.imageButton {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: white; */
+}
+
+.imageSrc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center 40%;
+}
+
+.imageBackdrop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background-color: black; */
+  opacity: 0.4;
+}
+
+.imageTitle {
+  position: relative;
+}
+
+.imageMarked {
+  width: 18px;
+  /* background-color: white; */
+  position: absolute;
+  bottom: -2px;
+  left: calc(50% - 9px);
+}
