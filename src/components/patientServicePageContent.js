@@ -9,11 +9,15 @@ import ListItem from "@material-ui/core/ListItem"
 import PatientServiceImages from "./patientServiceImages"
 import Grid from "@material-ui/core/Grid"
 import SubmitForm from "./SubmitForm"
+const window = require("global/window")
 
 export default function PatientServicePageContent() {
   const { actLanguage } = useContext(LanguageContext)
   const { headerHeight } = useContext(HeaderHeightContext)
-  const contentWrapperMarginTop = headerHeight * 1.8
+  const contentWrapperMarginTop =
+    window.innerWidth <= 959 ? headerHeight * 1.6 : headerHeight * 2.5
+  const contentWrapperMarginBottom =
+    window.innerWidth <= 959 ? headerHeight * 1.5 : headerHeight * 1.7
   const [showAfterLoading, setShowAfterLoading] = useState(false)
 
   function startShowAfterLoading() {
@@ -33,7 +37,7 @@ export default function PatientServicePageContent() {
       style={{
         marginTop: contentWrapperMarginTop,
         minHeight: "100vh",
-        marginBottom: "5%",
+        marginBottom: contentWrapperMarginBottom,
       }}
     >
       <Typography
