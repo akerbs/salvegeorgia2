@@ -18,8 +18,6 @@ import InputLabel from "@material-ui/core/InputLabel"
 import "./submitForm.css"
 const window = require("global/window")
 
-const foolWidth = window.innerWidth <= 599 ? 288 : 380
-
 export default function (props) {
   const theme = useTheme()
 
@@ -262,7 +260,7 @@ export default function (props) {
     }
   }
   return (
-    <div style={{ width: foolWidth, margin: "0 auto " }}>
+    <div className="root">
       <CssBaseline />
       <Typography
         variant="body1"

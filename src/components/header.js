@@ -46,10 +46,6 @@ function HideOnScroll(props) {
 }
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexGrow: 1,
-  },
   appBar: {
     backgroundColor: theme.palette.primary.main,
     transition: theme.transitions.create(["margin", "width"], {
@@ -73,7 +69,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  menuLeftButton: {},
+
   menuRightButton: {
     paddingLeft: theme.spacing(1),
   },
@@ -82,14 +78,9 @@ const useStyles = makeStyles(theme => ({
     display: "none",
   },
   toolbar: {
-    // height: "14vh",
-    // display: "flex",
-    // justifyContent: "space-between",
     borderBottom: "0.5vh solid black",
   },
   logo: {
-    // flexGrow: 1,
-    // display: "inline",
     fontSize: "1.5rem",
     fontFamily: "Fondamento",
     marginTop: logoMarginTop,
@@ -230,7 +221,7 @@ function Header(props) {
   }, [])
 
   return (
-    <div className={classes.root}>
+    <div style={{ display: "flex", flexGrow: 1 }}>
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar

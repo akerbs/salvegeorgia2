@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import ButtonBase from "@material-ui/core/ButtonBase"
 import Typography from "@material-ui/core/Typography"
 import { LanguageContext } from "../components/layout"
@@ -43,12 +43,6 @@ const images = [
 ]
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    minWidth: 300,
-    width: "100%",
-  },
   image: {
     position: "relative",
     height: "50vh", //330
@@ -118,11 +112,20 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function ComplexButtons() {
+  const theme = useTheme()
+
   const classes = useStyles()
   const { actLanguage } = useContext(LanguageContext)
 
   return (
-    <div className={classes.root}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        minWidth: 300,
+        width: "100%",
+      }}
+    >
       {images.map(image => (
         <ButtonBase
           onClick={() => {
