@@ -15,7 +15,7 @@ export default function IndexPageContent() {
   useEffect(() => {
     const timer = setTimeout(() => {
       startShowAfterLoading()
-    }, 300)
+    }, 100)
     return () => clearTimeout(timer)
   }, [])
 
