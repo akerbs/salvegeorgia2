@@ -27,7 +27,7 @@ export default function PatientServicePageContent() {
   useEffect(() => {
     const timer = setTimeout(() => {
       startShowAfterLoading()
-    }, 300)
+    }, 100)
     return () => clearTimeout(timer)
   }, [])
 
@@ -130,7 +130,7 @@ export default function PatientServicePageContent() {
           </Typography>
         </Grid>
         <Grid item sm={6} xs={12}>
-          <PatientServiceImages />
+          {showAfterLoading && <PatientServiceImages />}
         </Grid>
       </Grid>
       <div
@@ -140,7 +140,7 @@ export default function PatientServicePageContent() {
           margin: "8vh 0",
         }}
       >
-        {showAfterLoading && <SubmitForm />}
+        <SubmitForm />
       </div>
     </Container>
   )
