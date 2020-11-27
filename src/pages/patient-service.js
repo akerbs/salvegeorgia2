@@ -8,19 +8,6 @@ import PatientServicePageContent from "../components/patientServicePageContent"
 const window = require("global/window")
 
 export default function () {
-  const [showAfterLoading, setShowAfterLoading] = useState(false)
-
-  function startShowAfterLoading() {
-    setShowAfterLoading(true)
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      startShowAfterLoading()
-    }, 300)
-    return () => clearTimeout(timer)
-  }, [])
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -29,8 +16,8 @@ export default function () {
     <div style={{ padding: 0, margin: 0 }}>
       <SEO title="About us" />
       <Header />
-      {showAfterLoading && <PatientServicePageContent />}
-      {showAfterLoading && <Footer />}
+      <PatientServicePageContent />
+      <Footer />
     </div>
   )
 }

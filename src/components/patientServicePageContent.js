@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import Container from "@material-ui/core/Container"
 import ComplexButtons from "./complexButtons"
 import { LanguageContext } from "./layout"
@@ -14,6 +14,18 @@ export default function PatientServicePageContent() {
   const { actLanguage } = useContext(LanguageContext)
   const { headerHeight } = useContext(HeaderHeightContext)
   const contentWrapperMarginTop = headerHeight * 2
+  const [showAfterLoading, setShowAfterLoading] = useState(false)
+
+  function startShowAfterLoading() {
+    setShowAfterLoading(true)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      startShowAfterLoading()
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <Container
@@ -124,7 +136,7 @@ export default function PatientServicePageContent() {
           margin: "8vh 0",
         }}
       >
-        <SubmitForm />
+        {showAfterLoading && <SubmitForm />}
       </div>
     </Container>
   )
