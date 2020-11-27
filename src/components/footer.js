@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { useTheme } from "@material-ui/core/styles"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import { Link } from "gatsby"
@@ -14,12 +14,7 @@ import { LanguageContext } from "./layout"
 import "./footer.css"
 const window = require("global/window")
 
-// const footerPaddingTop = window.innerWidth <= 599 ? "20%" : "5%"
-
-const useStyles = makeStyles(theme => ({}))
-
 export default function Footer() {
-  const classes = useStyles()
   const [show, setShow] = useState(false)
   const { actLanguage } = useContext(LanguageContext)
   const theme = useTheme()
@@ -38,7 +33,6 @@ export default function Footer() {
 
   return (
     <div
-      className={classes.root}
       style={{
         backgroundColor: theme.palette.primary.main,
         padding: "5% 2% 0% 7%",
@@ -55,11 +49,7 @@ export default function Footer() {
           <div>
             <Grid container spacing={7}>
               <Grid item md={5}>
-                <Typography
-                  variant="body2"
-                  className={classes.title}
-                  style={{ marginBottom: 20 }}
-                >
+                <Typography variant="body2" style={{ marginBottom: 20 }}>
                   {actLanguage === "DEU"
                     ? "KONTAKTE"
                     : actLanguage === "GEO"
@@ -78,7 +68,7 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item md={3}>
-                <Typography variant="body2" className={classes.title}>
+                <Typography variant="body2">
                   {actLanguage === "DEU"
                     ? "DIENSTLEISTUNGEN"
                     : actLanguage === "GEO"
@@ -141,7 +131,7 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item md={4}>
-                <Typography variant="body2" className={classes.title}>
+                <Typography variant="body2">
                   {actLanguage === "DEU"
                     ? "FOLGEN SIE UNS"
                     : actLanguage === "GEO"
@@ -161,7 +151,6 @@ export default function Footer() {
               </Grid>
             </Grid>
             <div
-              className={classes.lastLine}
               style={{
                 textAlign: "center",
                 minHeight: "50px",

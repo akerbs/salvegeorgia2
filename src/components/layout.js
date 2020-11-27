@@ -1,28 +1,14 @@
 import React, { createContext, useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { makeStyles } from "@material-ui/core/styles"
 import { ThemeProvider } from "@material-ui/core/styles"
 import theme from "./theme"
-
 import "./layout.css"
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: "#fff",
-    // maxWidth: "100vw",
-    // margin: 0,
-    // padding: 0,
-    // overflow: "hidden",
-  },
-}))
 
 export const LanguageContext = createContext()
 export const HeaderHeightContext = createContext()
 
 const Layout = ({ children }) => {
-  const classes = useStyles()
-
   const [actLanguage, setActLanguage] = useState("")
 
   useEffect(() => {
@@ -58,7 +44,7 @@ const Layout = ({ children }) => {
   // }, [headerHeight])
 
   return (
-    <div className={classes.root}>
+    <div style={{ backgroundColor: "#fff" }}>
       <LanguageContext.Provider
         value={{
           actLanguage,

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { useTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
@@ -14,33 +14,24 @@ const window = require("global/window")
 
 const languageSwitcherMarginTop = window.innerWidth <= 959 ? "9%" : "7%"
 
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-    // minWidth: 80,
-
-    margin: 0,
-    marginTop: languageSwitcherMarginTop,
-
-    left: "10%",
-  },
-  icon: {
-    paddingLeft: 1,
-  },
-}))
-
 export default function SelectLanguage() {
-  const classes = useStyles()
+  const theme = useTheme()
 
   const { actLanguage, handleLanguageChange } = useContext(LanguageContext)
 
   return (
     <>
-      <FormControl variant="standard" className={classes.formControl}>
+      <FormControl
+        variant="standard"
+        style={{
+          margin: theme.spacing(1),
+          margin: 0,
+          marginTop: languageSwitcherMarginTop,
+          left: "10%",
+        }}
+      >
         <Select
-          classes={{
-            icon: classes.icon,
-          }}
+          style={{ paddingLeft: 1 }}
           MenuProps={{
             anchorOrigin: {
               vertical: "bottom",
@@ -64,24 +55,16 @@ export default function SelectLanguage() {
           style={{ color: "white" }}
         >
           <MenuItem value={"GEO"}>
-            <Typography variant="caption" className={classes.menuItem}>
-              GEO
-            </Typography>
+            <Typography variant="caption">GEO</Typography>
           </MenuItem>
           <MenuItem value={"DEU"}>
-            <Typography variant="caption" className={classes.menuItem}>
-              DEU
-            </Typography>
+            <Typography variant="caption">DEU</Typography>
           </MenuItem>
           <MenuItem value={"ENG"}>
-            <Typography variant="caption" className={classes.menuItem}>
-              ENG
-            </Typography>
+            <Typography variant="caption">ENG</Typography>
           </MenuItem>
           <MenuItem value={"RUS"}>
-            <Typography variant="caption" className={classes.menuItem}>
-              RUS
-            </Typography>
+            <Typography variant="caption">RUS</Typography>
           </MenuItem>
         </Select>
       </FormControl>

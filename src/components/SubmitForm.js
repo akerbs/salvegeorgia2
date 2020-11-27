@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { makeStyles, fade, useTheme } from "@material-ui/core/styles"
+import { fade, useTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import { LanguageContext } from "./layout"
 
@@ -16,15 +16,11 @@ import Select from "@material-ui/core/Select"
 import MenuItem from "@material-ui/core/MenuItem"
 import InputLabel from "@material-ui/core/InputLabel"
 import "./submitForm.css"
-
 const window = require("global/window")
 
 const foolWidth = window.innerWidth <= 599 ? 288 : 380
 
-const useStyles = makeStyles(theme => ({}))
-
 export default function (props) {
-  const classes = useStyles()
   const theme = useTheme()
 
   const { actLanguage } = useContext(LanguageContext)
@@ -266,10 +262,7 @@ export default function (props) {
     }
   }
   return (
-    <div
-      className={classes.root}
-      style={{ width: foolWidth, margin: "0 auto " }}
-    >
+    <div style={{ width: foolWidth, margin: "0 auto " }}>
       <CssBaseline />
       <Typography
         variant="body1"
@@ -606,7 +599,6 @@ export default function (props) {
         </FormControl>
 
         <span
-          className={classes.errorMsg}
           style={{ fontSize: 13, fontWeight: "500", color: "rgb(220,39,39)" }}
         >
           {(errorForm.sex_grad_select && errorFormMsg.sex_grad_select) ||

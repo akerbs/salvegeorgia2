@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import ComplexButtons from "./complexButtons"
 import { LanguageContext } from "./layout"
@@ -11,19 +10,7 @@ import PatientServiceImages from "./patientServiceImages"
 import Grid from "@material-ui/core/Grid"
 import SubmitForm from "./SubmitForm"
 
-const useStyles = makeStyles(theme => ({
-  contentWrapper: {
-    minHeight: "100vh",
-    marginBottom: "5%",
-    // marginTop: "12vh",
-    [theme.breakpoints.down("lg")]: {
-      // marginTop: "7vh",
-    },
-  },
-}))
-
 export default function PatientServicePageContent() {
-  const classes = useStyles()
   const { actLanguage } = useContext(LanguageContext)
   const { headerHeight } = useContext(HeaderHeightContext)
   const contentWrapperMarginTop = headerHeight * 2
@@ -31,8 +18,11 @@ export default function PatientServicePageContent() {
   return (
     <Container
       maxWidth="lg"
-      className={classes.contentWrapper}
-      style={{ marginTop: contentWrapperMarginTop }}
+      style={{
+        marginTop: contentWrapperMarginTop,
+        minHeight: "100vh",
+        marginBottom: "5%",
+      }}
     >
       <Typography
         variant="h6"
@@ -54,7 +44,7 @@ export default function PatientServicePageContent() {
         <Grid item sm={6} xs={12}>
           <Typography variant="body1" color="primary">
             <List>
-              <ListItem className={classes.listItem}>
+              <ListItem>
                 {actLanguage === "DEU"
                   ? "Plastische Chirurgie"
                   : actLanguage === "GEO"
@@ -65,7 +55,7 @@ export default function PatientServicePageContent() {
                   ? "Plastic surgery"
                   : null}
               </ListItem>
-              <ListItem className={classes.listItem}>
+              <ListItem>
                 {actLanguage === "DEU"
                   ? "Kosmetologische Verfahren"
                   : actLanguage === "GEO"
@@ -76,7 +66,7 @@ export default function PatientServicePageContent() {
                   ? "Cosmetology procedures"
                   : null}
               </ListItem>
-              <ListItem className={classes.listItem}>
+              <ListItem>
                 {actLanguage === "DEU"
                   ? "Zahnimplantate"
                   : actLanguage === "GEO"
@@ -87,7 +77,7 @@ export default function PatientServicePageContent() {
                   ? "Dental implants"
                   : null}
               </ListItem>
-              <ListItem className={classes.listItem}>
+              <ListItem>
                 {actLanguage === "DEU"
                   ? "Massage"
                   : actLanguage === "GEO"
@@ -98,7 +88,7 @@ export default function PatientServicePageContent() {
                   ? "Massage"
                   : null}
               </ListItem>
-              <ListItem className={classes.listItem}>
+              <ListItem>
                 {actLanguage === "DEU"
                   ? "Balneologische Verfahren"
                   : actLanguage === "GEO"
@@ -109,7 +99,7 @@ export default function PatientServicePageContent() {
                   ? "Balneological procedures"
                   : null}
               </ListItem>
-              <ListItem className={classes.listItem}>
+              <ListItem>
                 {actLanguage === "DEU"
                   ? "In-vitro-Fertilisation"
                   : actLanguage === "GEO"

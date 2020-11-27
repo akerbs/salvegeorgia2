@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { useTheme } from "@material-ui/core/styles"
 import GridList from "@material-ui/core/GridList"
 import GridListTile from "@material-ui/core/GridListTile"
 
@@ -19,21 +19,6 @@ import image7 from "../images/medical_service/7.jpg"
 const window = require("global/window")
 
 const GridListWidth = window.innerWidth <= 599 ? 300 : 600
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    width: GridListWidth,
-    // height: 120,
-    overflowY: "auto",
-  },
-}))
 
 const tileDataMax = [
   {
@@ -114,13 +99,25 @@ const tileDataMin = [
 ]
 
 export default function () {
-  const classes = useStyles()
+  const theme = useTheme()
 
   return (
-    <div className={classes.root}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        overflow: "hidden",
+        backgroundColor: theme.palette.background.paper,
+      }}
+    >
       <GridList
         cellHeight={120}
-        className={classes.gridList}
+        style={{
+          width: GridListWidth,
+
+          overflowY: "auto",
+        }}
         cols={3}
         spacing={2}
       >
