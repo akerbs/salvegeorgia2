@@ -30,7 +30,7 @@ export default function () {
       <SEO title="About us" />
       <Header />
       {showAfterLoading && <PatientServicePageContent />}
-      <Footer />
+      {showAfterLoading && <Footer />}
     </div>
   )
 }
