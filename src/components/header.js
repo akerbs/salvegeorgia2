@@ -27,6 +27,7 @@ import MenuList from "@material-ui/core/MenuList"
 import Backdrop from "@material-ui/core/Backdrop"
 import { LanguageContext } from "./layout"
 import { HeaderHeightContext } from "./layout"
+import "./header.css"
 
 const document = require("global/document")
 const window = require("global/window")
@@ -46,14 +47,7 @@ function HideOnScroll(props) {
 }
 
 const useStyles = makeStyles(theme => ({
-  appBar: {
-    backgroundColor: theme.palette.primary.main,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShiftToRight: {
+  appBarShiftToLeft: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: 100,
     transition: theme.transitions.create(["margin", "width"], {
@@ -227,7 +221,14 @@ function Header(props) {
         <AppBar
           ref={measuredRef}
           position="fixed"
-          className={clsx(classes.appBar, {
+          style={{
+            backgroundColor: theme.palette.primary.main,
+            transition: theme.transitions.create(["margin", "width"], {
+              easing: theme.transitions.easing.sharp,
+              duration: theme.transitions.duration.leavingScreen,
+            }),
+          }}
+          className={clsx({
             [classes.appBarShiftToLeft]: openDrawer,
           })}
         >
