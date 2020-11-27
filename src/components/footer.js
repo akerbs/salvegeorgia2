@@ -13,6 +13,9 @@ import { LanguageContext } from "./layout"
 
 import "./footer.css"
 const window = require("global/window")
+const footerPadding =
+  window.innerWidth <= 959 ? "18% 10% 0% 10%" : "5% 2% 0% 7%"
+const lastLineMarginTop = window.innerWidth <= 959 ? "15% " : "5% "
 
 export default function Footer() {
   const [show, setShow] = useState(false)
@@ -35,11 +38,7 @@ export default function Footer() {
     <div
       style={{
         backgroundColor: theme.palette.primary.main,
-        padding: "5% 2% 0% 7%",
-
-        [theme.breakpoints.down("sm")]: {
-          padding: "18% 5% 0% 5%",
-        },
+        padding: footerPadding,
       }}
     >
       <CssBaseline />
@@ -154,10 +153,7 @@ export default function Footer() {
               style={{
                 textAlign: "center",
                 minHeight: "50px",
-                marginTop: "5% ",
-                [theme.breakpoints.down("sm")]: {
-                  marginTop: "15% ",
-                },
+                marginTop: lastLineMarginTop,
               }}
             >
               © {new Date().getFullYear()}, salvegeorgia.com
