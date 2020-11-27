@@ -1,0 +1,45 @@
+.textfield {
+  width: 380px;
+}
+@media screen and (max-width: 599px) {
+  .textfield {
+    width: 288px;
+  }
+}
+
+.textfield .MuiOutlinedInput-inputMarginDense {
+  margin: 0;
+}
+
+.textfield .MuiOutlinedInput-root fieldset {
+  border-width: 1;
+  border-color: #e0e0e0;
+}
+
+.textfield .MuiOutlinedInput-root:hover fieldset {
+  border-color: #e0e0e0;
+}
+
+.textfield .MuiOutlinedInput-root .Mui-focused fieldset {
+  border-color: #0798f2;
+  border-width: 1px;
+  box-shadow: (#0798f2, 0.25) 0 0 0 4px;
+}
+
+.textfieldError .MuiOutlinedInput-root {
+  color: rgb(220, 39, 39);
+}
+
+.textfieldError .MuiOutlinedInput-root fieldset {
+  border-width: 1px;
+  border-color: rgb(220, 39, 39);
+}
+.textfieldError .MuiOutlinedInput-root:hover fieldset {
+  border-color: rgb(220, 39, 39);
+}
+.textfieldError .MuiOutlinedInput-root .Mui-focused fieldset {
+  border-color: #0798f2;
+}
+.textfieldError .Mui-focused {
+  color: black;
+}

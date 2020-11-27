@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { makeStyles, fade } from "@material-ui/core/styles"
+import { makeStyles, fade, useTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import { LanguageContext } from "./layout"
 
@@ -15,6 +15,7 @@ import SendIcon from "@material-ui/icons/Send"
 import Select from "@material-ui/core/Select"
 import MenuItem from "@material-ui/core/MenuItem"
 import InputLabel from "@material-ui/core/InputLabel"
+import "./submitForm.css"
 
 const window = require("global/window")
 
@@ -24,6 +25,7 @@ const useStyles = makeStyles(theme => ({}))
 
 export default function (props) {
   const classes = useStyles()
+  const theme = useTheme()
 
   const { actLanguage } = useContext(LanguageContext)
 
@@ -264,7 +266,10 @@ export default function (props) {
     }
   }
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{ width: foolWidth, margin: "0 auto " }}
+    >
       <CssBaseline />
       <Typography
         variant="body1"
@@ -294,9 +299,8 @@ export default function (props) {
         <FormControl
           variant="outlined"
           className={clsx(
-            classes.textfield,
-            classes.textfieldFullWidth,
-            errorForm.sex_grad_select && classes.textfieldError
+            "textfield",
+            errorForm.sex_grad_select && "textfieldError"
           )}
         >
           <TextField
@@ -323,11 +327,15 @@ export default function (props) {
             }}
             SelectProps={{
               MenuProps: {
-                className: classes.selectX,
+                style: {
+                  "& li": {
+                    fontSize: "0.8rem",
+                  },
+                },
               },
             }}
             InputProps={{
-              className: classes.selectMenu,
+              style: { margin: 0, fontSize: 16 },
             }}
             size="small"
             id="sex_grad_select"
@@ -368,9 +376,8 @@ export default function (props) {
 
         <FormControl
           className={clsx(
-            classes.textfield,
-            classes.textfieldFullWidth,
-            errorForm.first_name && classes.textfieldError
+            "textfield",
+            errorForm.first_name && "textfieldError"
           )}
         >
           <TextField
@@ -397,11 +404,7 @@ export default function (props) {
         </FormControl>
 
         <FormControl
-          className={clsx(
-            classes.textfield,
-            classes.textfieldFullWidth,
-            errorForm.last_name && classes.textfieldError
-          )}
+          className={clsx("textfield", errorForm.last_name && "textfieldError")}
         >
           <TextField
             type="text"
@@ -427,11 +430,7 @@ export default function (props) {
         </FormControl>
 
         <FormControl
-          className={clsx(
-            classes.textfield,
-            classes.textfieldFullWidth,
-            errorForm.phone && classes.textfieldError
-          )}
+          className={clsx("textfield", errorForm.phone && "textfieldError")}
         >
           <TextField
             type="phone"
@@ -456,11 +455,7 @@ export default function (props) {
         </FormControl>
 
         <FormControl
-          className={clsx(
-            classes.textfield,
-            classes.textfieldFullWidth,
-            errorForm.email && classes.textfieldError
-          )}
+          className={clsx("textfield", errorForm.email && "textfieldError")}
         >
           <TextField
             type="email"
@@ -487,9 +482,8 @@ export default function (props) {
         <FormControl
           variant="outlined"
           className={clsx(
-            classes.textfield,
-            classes.textfieldFullWidth,
-            errorForm.service_select && classes.textfieldError
+            "textfield",
+            errorForm.service_select && "textfieldError"
           )}
         >
           <TextField
@@ -516,11 +510,15 @@ export default function (props) {
             }}
             SelectProps={{
               MenuProps: {
-                className: classes.selectX,
+                style: {
+                  "& li": {
+                    fontSize: "0.8rem",
+                  },
+                },
               },
             }}
             InputProps={{
-              className: classes.selectMenu,
+              style: { margin: 0, fontSize: 16 },
             }}
             size="small"
             id="service_select"
@@ -607,7 +605,10 @@ export default function (props) {
           </TextField>
         </FormControl>
 
-        <span className={classes.errorMsg}>
+        <span
+          className={classes.errorMsg}
+          style={{ fontSize: 13, fontWeight: "500", color: "rgb(220,39,39)" }}
+        >
           {(errorForm.sex_grad_select && errorFormMsg.sex_grad_select) ||
             (errorForm.first_name && errorFormMsg.first_name) ||
             (errorForm.last_name && errorFormMsg.last_name) ||

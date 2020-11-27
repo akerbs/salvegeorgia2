@@ -3,13 +3,15 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import { Link } from "gatsby"
 import inView from "in-view"
 import Slide from "@material-ui/core/Slide"
 import { LanguageContext } from "./layout"
+
+import "./footer.css"
 const window = require("global/window")
 
 // const footerPaddingTop = window.innerWidth <= 599 ? "20%" : "5%"
@@ -20,6 +22,7 @@ export default function Footer() {
   const classes = useStyles()
   const [show, setShow] = useState(false)
   const { actLanguage } = useContext(LanguageContext)
+  const theme = useTheme()
 
   function startInView() {
     setShow(true)
@@ -34,7 +37,17 @@ export default function Footer() {
   })
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{
+        backgroundColor: theme.palette.primary.main,
+        padding: "5% 2% 0% 7%",
+
+        [theme.breakpoints.down("sm")]: {
+          padding: "18% 5% 0% 5%",
+        },
+      }}
+    >
       <CssBaseline />
 
       <div style={{ overflow: "hidden" }} id="selector">
@@ -42,7 +55,11 @@ export default function Footer() {
           <div>
             <Grid container spacing={7}>
               <Grid item md={5}>
-                <Typography variant="body2" className={classes.title}>
+                <Typography
+                  variant="body2"
+                  className={classes.title}
+                  style={{ marginBottom: 20 }}
+                >
                   {actLanguage === "DEU"
                     ? "KONTAKTE"
                     : actLanguage === "GEO"
@@ -73,7 +90,7 @@ export default function Footer() {
                     : "SERVICES"}
                 </Typography>
                 <Typography variant="caption">
-                  <Link to="#" className={classes.link} key={"Patient service"}>
+                  <Link to="#" className="link" key={"Patient service"}>
                     {actLanguage === "DEU"
                       ? "Patientenservice"
                       : actLanguage === "GEO"
@@ -85,7 +102,7 @@ export default function Footer() {
                       : "Patient service"}
                   </Link>
                   <br />
-                  <Link to="#" className={classes.link} key={"Legal service"}>
+                  <Link to="#" className="link" key={"Legal service"}>
                     {actLanguage === "DEU"
                       ? "Juristische Service"
                       : actLanguage === "GEO"
@@ -97,7 +114,7 @@ export default function Footer() {
                       : "Legal service"}
                   </Link>
                   <br />
-                  <Link to="#" className={classes.link} key={"Work abroad"}>
+                  <Link to="#" className="link" key={"Work abroad"}>
                     {actLanguage === "DEU"
                       ? "Arbeit im Ausland"
                       : actLanguage === "GEO"
@@ -110,7 +127,7 @@ export default function Footer() {
                   </Link>
                   <br />
 
-                  <Link to="#" className={classes.link} key={"About us"}>
+                  <Link to="#" className="link" key={"About us"}>
                     {actLanguage === "DEU"
                       ? "Über uns"
                       : actLanguage === "GEO"
@@ -135,15 +152,25 @@ export default function Footer() {
                     ? "FOLLOW US"
                     : "FOLLOW US"}
                 </Typography>
-                <Link to="#" className={classes.link}>
+                <Link to="#" className="link">
                   <FacebookIcon />
                 </Link>
-                <Link to="#" className={classes.link}>
+                <Link to="#" className="link">
                   <InstagramIcon />
                 </Link>
               </Grid>
             </Grid>
-            <div className={classes.lastLine}>
+            <div
+              className={classes.lastLine}
+              style={{
+                textAlign: "center",
+                minHeight: "50px",
+                marginTop: "5% ",
+                [theme.breakpoints.down("sm")]: {
+                  marginTop: "15% ",
+                },
+              }}
+            >
               © {new Date().getFullYear()}, salvegeorgia.com
             </div>
           </div>
