@@ -13,7 +13,7 @@ import SubmitForm from "./SubmitForm"
 export default function PatientServicePageContent() {
   const { actLanguage } = useContext(LanguageContext)
   const { headerHeight } = useContext(HeaderHeightContext)
-  const contentWrapperMarginTop = headerHeight * 2
+  const contentWrapperMarginTop = headerHeight * 1.8
   const [showAfterLoading, setShowAfterLoading] = useState(false)
 
   function startShowAfterLoading() {
