@@ -17,7 +17,7 @@ export default function () {
   useEffect(() => {
     const timer = setTimeout(() => {
       startShowAfterLoading()
-    }, 500)
+    }, 300)
     return () => clearTimeout(timer)
   }, [])
 
