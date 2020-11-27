@@ -79,7 +79,11 @@ export default function Footer() {
                     : "SERVICES"}
                 </Typography>
                 <Typography variant="caption">
-                  <Link to="#" className="footer_link" key={"Patient service"}>
+                  <Link
+                    to="/patient-service"
+                    className="footer_link"
+                    key={"Patient service"}
+                  >
                     {actLanguage === "DEU"
                       ? "Patientenservice"
                       : actLanguage === "GEO"
@@ -91,7 +95,11 @@ export default function Footer() {
                       : "Patient service"}
                   </Link>
                   <br />
-                  <Link to="#" className="footer_link" key={"Legal service"}>
+                  <Link
+                    to="/legal-service"
+                    className="footer_link"
+                    key={"Legal service"}
+                  >
                     {actLanguage === "DEU"
                       ? "Juristische Service"
                       : actLanguage === "GEO"
@@ -103,7 +111,11 @@ export default function Footer() {
                       : "Legal service"}
                   </Link>
                   <br />
-                  <Link to="#" className="footer_link" key={"Work abroad"}>
+                  <Link
+                    to="/work-abroad"
+                    className="footer_link"
+                    key={"Work abroad"}
+                  >
                     {actLanguage === "DEU"
                       ? "Arbeit im Ausland"
                       : actLanguage === "GEO"
@@ -116,7 +128,7 @@ export default function Footer() {
                   </Link>
                   <br />
 
-                  <Link to="#" className="footer_link" key={"About us"}>
+                  <Link to="/about" className="footer_link" key={"About us"}>
                     {actLanguage === "DEU"
                       ? "Über uns"
                       : actLanguage === "GEO"

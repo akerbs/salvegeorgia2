@@ -3,7 +3,7 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 
-import PatientServicePageContent from "../components/patientServicePageContent"
+import AboutPageContent from "../components/aboutPageContent"
 
 const window = require("global/window")
 
@@ -14,9 +14,10 @@ export default function () {
 
   return (
     <div style={{ padding: 0, margin: 0 }}>
-      <SEO title="Patient service" />
+      <SEO title="About" />
       <Header />
-      <PatientServicePageContent />
+      <AboutPageContent />
+
       <Footer />
     </div>
   )

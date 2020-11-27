@@ -235,7 +235,9 @@ function Header(props) {
                       className="menuBtn"
                       // aria-owns={anchorEl1 ? "simple-menu-1" : undefined}
                       // aria-haspopup="true"
-                      // onClick={handleClick1}
+                      onClick={() => {
+                        navigate("/about")
+                      }}
                       onMouseOver={e => {
                         handleMenuClose2(e)
                         handleMenuClose3(e)
@@ -250,7 +252,7 @@ function Header(props) {
                         ? "О нас"
                         : actLanguage === "ENG"
                         ? "About us"
-                        : null}
+                        : "About us"}
                     </Button>
                   </Grid>
                   <Grid item xs={3} style={{ textAlign: "center" }}>
@@ -284,7 +286,7 @@ function Header(props) {
                         ? "Медицинские услуги"
                         : actLanguage === "ENG"
                         ? "Patient service"
-                        : null}
+                        : "Patient service"}
                     </Button>
                     <Popper
                       style={{
@@ -303,24 +305,18 @@ function Header(props) {
                             vertical: "bottom",
                             horizontal: "center",
                           }}
-                          // transformOrigin={{
-                          //   vertical: "top",
-                          //   horizontal: "center",
-                          // }}
                           id="simple-menu-2"
                           anchorEl={state2.anchorEl2}
                           open={Boolean(state2.anchorEl2)}
                           onClose={handleMenuClose2}
                           MenuListProps={{ onMouseLeave: handleMenuClose2 }}
-                          // MenuListProps={{
-                          //   onMouseEnter: enterMenu2,
-                          //   onMouseLeave: leaveMenu2,
-                          // }}
-                          // getContentAnchorEl={null}
                         >
                           <MenuItem
-                            onClick={handleMenuClose2}
                             className="menuItem"
+                            onClick={() => {
+                              navigate("/patient-service")
+                              handleMenuClose2()
+                            }}
                           >
                             {actLanguage === "DEU"
                               ? "Plastische Chirurgie"
@@ -330,11 +326,14 @@ function Header(props) {
                               ? " Пластическая хирургия"
                               : actLanguage === "ENG"
                               ? "Plastic surgery"
-                              : null}
+                              : "Plastic surgery"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose2}
                             className="menuItem"
+                            onClick={() => {
+                              navigate("/patient-service")
+                              handleMenuClose2()
+                            }}
                           >
                             {actLanguage === "DEU"
                               ? "Kosmetologische Verfahren"
@@ -344,11 +343,14 @@ function Header(props) {
                               ? "Косметологические процедуры"
                               : actLanguage === "ENG"
                               ? "Cosmetology procedures"
-                              : null}
+                              : "Cosmetology procedures"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose2}
                             className="menuItem"
+                            onClick={() => {
+                              navigate("/patient-service")
+                              handleMenuClose2()
+                            }}
                           >
                             {actLanguage === "DEU"
                               ? "Zahnimplantate"
@@ -358,11 +360,14 @@ function Header(props) {
                               ? "Зубные имплантаты"
                               : actLanguage === "ENG"
                               ? "Dental implants"
-                              : null}
+                              : "Dental implants"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose2}
                             className="menuItem"
+                            onClick={() => {
+                              navigate("/patient-service")
+                              handleMenuClose2()
+                            }}
                           >
                             {actLanguage === "DEU"
                               ? "Massage"
@@ -372,11 +377,14 @@ function Header(props) {
                               ? "Массаж"
                               : actLanguage === "ENG"
                               ? "Massage"
-                              : null}
+                              : "Massage"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose2}
                             className="menuItem"
+                            onClick={() => {
+                              navigate("/patient-service")
+                              handleMenuClose2()
+                            }}
                           >
                             {actLanguage === "DEU"
                               ? "Balneologische Verfahren"
@@ -386,11 +394,14 @@ function Header(props) {
                               ? "Бальнеологические процедуры"
                               : actLanguage === "ENG"
                               ? "Balneological procedures"
-                              : null}
+                              : "Balneological procedures"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose2}
                             className="menuItem"
+                            onClick={() => {
+                              navigate("/patient-service")
+                              handleMenuClose2()
+                            }}
                           >
                             {actLanguage === "DEU"
                               ? "In-vitro-Fertilisation"
@@ -400,7 +411,7 @@ function Header(props) {
                               ? "Экстракорпоральное оплодотворение"
                               : actLanguage === "ENG"
                               ? "In Vitro Fertilization"
-                              : null}
+                              : "In Vitro Fertilization"}
                           </MenuItem>
                         </MenuList>
                       </Paper>
@@ -411,7 +422,9 @@ function Header(props) {
                       className="menuBtn"
                       aria-owns={state3.anchorEl3 ? "simple-menu-3" : undefined}
                       aria-haspopup="true"
-                      // onClick={handleMenuClose2}
+                      onClick={() => {
+                        navigate("/legal-service")
+                      }}
                       onMouseOver={e => {
                         handleMenuOpen3(e)
                         handleMenuClose2(e)
@@ -433,7 +446,7 @@ function Header(props) {
                         ? "Юридические услуги"
                         : actLanguage === "ENG"
                         ? "Legal service"
-                        : null}
+                        : "Legal service"}
                     </Button>
                     <Popper
                       style={{
@@ -464,7 +477,10 @@ function Header(props) {
                           // getContentAnchorEl={null}
                         >
                           <MenuItem
-                            onClick={handleMenuClose3}
+                            onClick={() => {
+                              navigate("/legal-service")
+                              handleMenuClose3()
+                            }}
                             className="menuItem"
                           >
                             {actLanguage === "DEU"
@@ -475,10 +491,13 @@ function Header(props) {
                               ? "Регистрация юридических лиц"
                               : actLanguage === "ENG"
                               ? "Registration of legal entities"
-                              : null}
+                              : "Registration of legal entities"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose3}
+                            onClick={() => {
+                              navigate("/legal-service")
+                              handleMenuClose3()
+                            }}
                             className="menuItem"
                           >
                             {actLanguage === "DEU"
@@ -489,7 +508,7 @@ function Header(props) {
                               ? "Арбитраж"
                               : actLanguage === "ENG"
                               ? "Arbitration"
-                              : null}
+                              : "Arbitration"}
                           </MenuItem>
                         </MenuList>
                       </Paper>
@@ -503,7 +522,9 @@ function Header(props) {
                         state4.anchorEl4 ? "simple-menu-4 " : undefined
                       }
                       aria-haspopup="true"
-                      // onClick={handleClick4}
+                      onClick={() => {
+                        navigate("/work-abroad")
+                      }}
                       onMouseOver={e => {
                         handleMenuOpen4(e)
                         handleMenuClose2(e)
@@ -525,7 +546,7 @@ function Header(props) {
                         ? "Работа за границей"
                         : actLanguage === "ENG"
                         ? "Work abroad"
-                        : null}
+                        : "Work abroad"}
                     </Button>
                     <Popper
                       style={{
@@ -556,7 +577,10 @@ function Header(props) {
                           // getContentAnchorEl={null}
                         >
                           <MenuItem
-                            onClick={handleMenuClose4}
+                            onClick={() => {
+                              navigate("/work-abroad")
+                              handleMenuClose4()
+                            }}
                             className="menuItem"
                           >
                             {actLanguage === "DEU"
@@ -567,10 +591,13 @@ function Header(props) {
                               ? "Наем врачей"
                               : actLanguage === "ENG"
                               ? "Hiring doctors"
-                              : null}
+                              : "Hiring doctors"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose4}
+                            onClick={() => {
+                              navigate("/work-abroad")
+                              handleMenuClose4()
+                            }}
                             className="menuItem"
                           >
                             {actLanguage === "DEU"
@@ -581,10 +608,13 @@ function Header(props) {
                               ? "Наем медсестер"
                               : actLanguage === "ENG"
                               ? "Hiring nurses"
-                              : null}
+                              : "Hiring nurses"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose4}
+                            onClick={() => {
+                              navigate("/work-abroad")
+                              handleMenuClose4()
+                            }}
                             className="menuItem"
                           >
                             {actLanguage === "DEU"
@@ -595,10 +625,13 @@ function Header(props) {
                               ? "Летние мероприятия"
                               : actLanguage === "ENG"
                               ? "Summer activities"
-                              : null}
+                              : "Summer activities"}
                           </MenuItem>
                           <MenuItem
-                            onClick={handleMenuClose4}
+                            onClick={() => {
+                              navigate("/work-abroad")
+                              handleMenuClose4()
+                            }}
                             className="menuItem"
                           >
                             {actLanguage === "DEU"
@@ -609,7 +642,7 @@ function Header(props) {
                               ? "Для студентов"
                               : actLanguage === "ENG"
                               ? "For students"
-                              : null}
+                              : "For students"}
                           </MenuItem>
                         </MenuList>
                       </Paper>

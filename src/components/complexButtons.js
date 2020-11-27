@@ -32,6 +32,7 @@ const images = [
     titleDeu: "Juristische Dienstleistung",
     titleEng: "Legal service",
     width: "50%",
+    path: `/legal-service`,
   },
   {
     url: `../../4.jpg`,
@@ -40,6 +41,7 @@ const images = [
     titleDeu: "Arbeit im Ausland",
     titleEng: "Work abroad",
     width: "50%",
+    path: `/work-abroad`,
   },
 ]
 

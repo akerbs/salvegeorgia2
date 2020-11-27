@@ -5,12 +5,12 @@ import { HeaderHeightContext } from "./layout"
 import Typography from "@material-ui/core/Typography"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
-import PatientServiceImages from "./patientServiceImages"
+import WorkAbroadImages from "./workAbroadImages"
 import Grid from "@material-ui/core/Grid"
-import FormPatientService from "./FormPatientService"
+import FormWorkAbroad from "./FormWorkAbroad"
 const window = require("global/window")
 
-export default function PatientServicePageContent() {
+export default function WorkAbroadPageContent() {
   const { actLanguage } = useContext(LanguageContext)
   const { headerHeight } = useContext(HeaderHeightContext)
   const contentWrapperMarginTop =
@@ -46,14 +46,14 @@ export default function PatientServicePageContent() {
         style={{ fontWeight: "bold", marginBottom: "5%" }}
       >
         {actLanguage === "DEU"
-          ? "Patientenservice"
+          ? "Arbeit im Ausland"
           : actLanguage === "GEO"
-          ? "ჩვენ შესახებ"
+          ? "საზღვარგარეთ დასაქმება"
           : actLanguage === "RUS"
-          ? "Медицинские услуги"
+          ? "Работа за границей"
           : actLanguage === "ENG"
-          ? "Patient service"
-          : "Patient service"}
+          ? "Work abroad"
+          : "Work abroad"}
       </Typography>
       <Grid container spacing={3}>
         <Grid item sm={6} xs={12}>
@@ -61,75 +61,53 @@ export default function PatientServicePageContent() {
             <List>
               <ListItem>
                 {actLanguage === "DEU"
-                  ? "Plastische Chirurgie"
+                  ? "Ärzte einstellen"
                   : actLanguage === "GEO"
-                  ? "პლასტიკური ქირურგია"
+                  ? "ექიმების დასაქმება "
                   : actLanguage === "RUS"
-                  ? " Пластическая хирургия"
+                  ? "Наем врачей"
                   : actLanguage === "ENG"
-                  ? "Plastic surgery"
-                  : "Plastic surgery"}
+                  ? "Hiring doctors"
+                  : "Hiring doctors"}
               </ListItem>
               <ListItem>
                 {actLanguage === "DEU"
-                  ? "Kosmetologische Verfahren"
+                  ? "Krankenschwestern einstellen"
                   : actLanguage === "GEO"
-                  ? "კოსმეტოლოგიური პროცედურები"
+                  ? "ექთნების დასაქმება"
                   : actLanguage === "RUS"
-                  ? "Косметологические процедуры"
+                  ? "Наем медсестер"
                   : actLanguage === "ENG"
-                  ? "Cosmetology procedures"
-                  : "Cosmetology procedures"}
+                  ? "Hiring nurses"
+                  : "Hiring nurses"}
               </ListItem>
               <ListItem>
                 {actLanguage === "DEU"
-                  ? "Zahnimplantate"
+                  ? "Sommeraktivitäten"
                   : actLanguage === "GEO"
-                  ? "კბილის იმპლანტები"
+                  ? "საზაფხულო საქმიანობა"
                   : actLanguage === "RUS"
-                  ? "Зубные имплантаты"
+                  ? "Летние мероприятия"
                   : actLanguage === "ENG"
-                  ? "Dental implants"
-                  : "Dental implants"}
+                  ? "Summer activities"
+                  : "Summer activities"}
               </ListItem>
               <ListItem>
                 {actLanguage === "DEU"
-                  ? "Massage"
+                  ? "Für Studierende"
                   : actLanguage === "GEO"
-                  ? "მასაჟი"
+                  ? "სტუდენტებისათვის"
                   : actLanguage === "RUS"
-                  ? "Массаж"
+                  ? "Для студентов"
                   : actLanguage === "ENG"
-                  ? "Massage"
-                  : "Massage"}
-              </ListItem>
-              <ListItem>
-                {actLanguage === "DEU"
-                  ? "Balneologische Verfahren"
-                  : actLanguage === "GEO"
-                  ? "ბალნეოლოგიური პროცედურები"
-                  : actLanguage === "RUS"
-                  ? "Бальнеологические процедуры"
-                  : actLanguage === "ENG"
-                  ? "Balneological procedures"
-                  : "Balneological procedures"}
-              </ListItem>
-              <ListItem>
-                {actLanguage === "DEU"
-                  ? "In-vitro-Fertilisation"
-                  : actLanguage === "GEO"
-                  ? "ინვიტრო განაყოფიერება"
-                  : actLanguage === "RUS"
-                  ? "Экстракорпоральное оплодотворение"
-                  : actLanguage === "ENG"
-                  ? "In Vitro Fertilization"
-                  : "In Vitro Fertilization"}
+                  ? "For students"
+                  : "For students"}
               </ListItem>
             </List>
           </Typography>
         </Grid>
         <Grid item sm={6} xs={12}>
-          {showAfterLoading && <PatientServiceImages />}
+          {showAfterLoading && <WorkAbroadImages />}
         </Grid>
       </Grid>
       <div
@@ -139,7 +117,7 @@ export default function PatientServicePageContent() {
           margin: "8vh 0",
         }}
       >
-        <FormPatientService />
+        <FormWorkAbroad />
       </div>
     </Container>
   )

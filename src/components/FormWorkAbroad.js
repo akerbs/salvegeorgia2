@@ -15,7 +15,7 @@ import SendIcon from "@material-ui/icons/Send"
 import Select from "@material-ui/core/Select"
 import MenuItem from "@material-ui/core/MenuItem"
 import InputLabel from "@material-ui/core/InputLabel"
-import "./submitForm.css"
+import "./form.css"
 const window = require("global/window")
 
 export default function (props) {
@@ -521,90 +521,64 @@ export default function (props) {
             onChange={changeHandler}
           >
             <MenuItem
-              value={"Plastic surgery"}
-              key={"Plastic surgery"}
+              value={"Hiring doctors"}
+              key={"Hiring doctors"}
               className="menuItem"
             >
               {actLanguage === "DEU"
-                ? "Plastische Chirurgie"
+                ? "Ärzte einstellen"
                 : actLanguage === "GEO"
-                ? "პლასტიკური ქირურგია"
+                ? "ექიმების დასაქმება "
                 : actLanguage === "RUS"
-                ? " Пластическая хирургия"
+                ? "Наем врачей"
                 : actLanguage === "ENG"
-                ? "Plastic surgery"
-                : "Plastic surgery"}
+                ? "Hiring doctors"
+                : "Hiring doctors"}
             </MenuItem>
             <MenuItem
-              value={"Cosmetology procedures"}
-              key={"Cosmetology procedures"}
+              value={"Hiring nurses"}
+              key={"Hiring nurses"}
               className="menuItem"
             >
               {actLanguage === "DEU"
-                ? "Kosmetologische Verfahren"
+                ? "Krankenschwestern einstellen"
                 : actLanguage === "GEO"
-                ? "კოსმეტოლოგიური პროცედურები"
+                ? "ექთნების დასაქმება"
                 : actLanguage === "RUS"
-                ? "Косметологические процедуры"
+                ? "Наем медсестер"
                 : actLanguage === "ENG"
-                ? "Cosmetology procedures"
-                : "Cosmetology procedures"}
+                ? "Hiring nurses"
+                : "Hiring nurses"}
             </MenuItem>
             <MenuItem
-              value={"Dental implants"}
-              key={"Dental implants"}
+              value={"Summer activities"}
+              key={"Summer activities"}
               className="menuItem"
             >
               {actLanguage === "DEU"
-                ? "Zahnimplantate"
+                ? "Sommeraktivitäten"
                 : actLanguage === "GEO"
-                ? "კბილის იმპლანტები"
+                ? "საზაფხულო საქმიანობა"
                 : actLanguage === "RUS"
-                ? "Зубные имплантаты"
+                ? "Летние мероприятия"
                 : actLanguage === "ENG"
-                ? "Dental implants"
-                : "Dental implants"}
-            </MenuItem>
-            <MenuItem value={"Massage"} key={"Massage"} className="menuItem">
-              {actLanguage === "DEU"
-                ? "Massage"
-                : actLanguage === "GEO"
-                ? "მასაჟი"
-                : actLanguage === "RUS"
-                ? "Массаж"
-                : actLanguage === "ENG"
-                ? "Massage"
-                : "Massage"}
+                ? "Summer activities"
+                : "Summer activities"}
             </MenuItem>
             <MenuItem
-              value={"Balneological procedures"}
-              key={"Balneological procedures"}
+              value={"For students"}
+              key={"For students"}
               className="menuItem"
             >
               {actLanguage === "DEU"
-                ? "Balneologische Verfahren"
+                ? "Für Studierende"
                 : actLanguage === "GEO"
-                ? "ბალნეოლოგიური პროცედურები"
+                ? "სტუდენტებისათვის"
                 : actLanguage === "RUS"
-                ? "Бальнеологические процедуры"
+                ? "Для студентов"
                 : actLanguage === "ENG"
-                ? "Balneological procedures"
-                : "Balneological procedures"}
-            </MenuItem>
-            <MenuItem
-              value={"In Vitro Fertilization"}
-              key={"In Vitro Fertilization"}
-              className="menuItem"
-            >
-              {actLanguage === "DEU"
-                ? "In-vitro-Fertilisation"
-                : actLanguage === "GEO"
-                ? "ინვიტრო განაყოფიერება"
-                : actLanguage === "RUS"
-                ? "Экстракорпоральное оплодотворение"
-                : actLanguage === "ENG"
-                ? "In Vitro Fertilization"
-                : "In Vitro Fertilization"}
+                ? "For students"
+                : "For students"}
             </MenuItem>
           </TextField>
         </FormControl>
