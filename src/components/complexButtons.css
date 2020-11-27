@@ -3,20 +3,20 @@
   height: 50vh;
 }
 .image:hover,
-.focusVisible {
+.image .focusVisible {
   z-index: 1;
 }
-.image:hover,
-.focusVisible .imageBackdrop {
+.image:hover .imageBackdrop,
+.image .focusVisible .imageBackdrop {
   opacity: 0.15;
 }
-.image:hover,
+.image:hover .imageMarked,
 .focusVisible .imageMarked {
   opacity: 0;
 }
-.image:hover,
+.image:hover .imageTitle,
 .focusVisible .imageTitle {
-  border: 4px solid transparent;
+  border: 4px solid white;
 }
 
 @media screen and (max-width: 599px) {
@@ -67,7 +67,6 @@
 
 .imageMarked {
   width: 18px;
-  /* background-color: white; */
   position: absolute;
   bottom: -2px;
   left: calc(50% - 9px);
