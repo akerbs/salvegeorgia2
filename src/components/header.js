@@ -49,14 +49,6 @@ function HideOnScroll(props) {
 const useStyles = makeStyles(theme => ({
   appBarShiftToLeft: {
     width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: 100,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  appBarShiftToLeft: {
-    width: `calc(100% - ${drawerWidth}px)`,
     marginRight: drawerWidth,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
@@ -64,53 +56,8 @@ const useStyles = makeStyles(theme => ({
     }),
   },
 
-  menuRightButton: {
-    paddingLeft: theme.spacing(1),
-  },
-
   hide: {
     display: "none",
-  },
-  toolbar: {
-    borderBottom: "0.5vh solid black",
-  },
-  logo: {
-    fontSize: "1.5rem",
-    fontFamily: "Fondamento",
-    marginTop: logoMarginTop,
-    color: "white",
-  },
-  link: {
-    color: "white",
-
-    textDecoration: "none",
-    "&:visited": {
-      color: "white",
-    },
-    "&:active": {
-      color: theme.palette.primary.light,
-    },
-  },
-  menuBtn: {
-    "&:hover": {
-      fontWeight: "bold",
-      color: "white",
-    },
-  },
-  backdrop: {
-    zIndex: 5,
-    color: "#fff",
-  },
-  popper: {
-    minWidth: "25vw",
-    zIndex: theme.zIndex.drawer + 99,
-    marginTop: "0.5vh",
-  },
-  menuItem: {
-    "&:hover": {
-      fontWeight: "bold",
-      color: theme.palette.primary.main,
-    },
   },
 }))
 
@@ -232,15 +179,23 @@ function Header(props) {
             [classes.appBarShiftToLeft]: openDrawer,
           })}
         >
-          <Toolbar className={classes.toolbar}>
+          <Toolbar style={{ borderBottom: "0.5vh solid black" }}>
             <Grid container spacing={1}>
               <Grid
                 item
                 xs={12}
                 style={{ display: "flex", justifyContent: "space-between" }}
               >
-                <Typography variant="h6" className={classes.logo}>
-                  <Link to="/" className={classes.link}>
+                <Typography
+                  variant="h6"
+                  style={{
+                    fontSize: "1.5rem",
+                    fontFamily: "Fondamento",
+                    marginTop: logoMarginTop,
+                    color: "white",
+                  }}
+                >
+                  <Link to="/" className="link">
                     <b> salvegeorgia.com</b>
                   </Link>
                 </Typography>
@@ -254,10 +209,8 @@ function Header(props) {
                       aria-label="open drawer"
                       onClick={handleDrawerOpen}
                       edge="end"
-                      className={clsx(
-                        classes.menuLeftButton,
-                        openDrawer && classes.hide
-                      )}
+                      style={{ paddingLeft: theme.spacing(1) }}
+                      className={clsx(openDrawer && classes.hide)}
                     >
                       <MenuIcon />
                     </IconButton>
@@ -279,7 +232,7 @@ function Header(props) {
                 >
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className={classes.menuBtn}
+                      className="menuBtn"
                       // aria-owns={anchorEl1 ? "simple-menu-1" : undefined}
                       // aria-haspopup="true"
                       // onClick={handleClick1}
@@ -302,7 +255,7 @@ function Header(props) {
                   </Grid>
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className={classes.menuBtn}
+                      className="menuBtn"
                       aria-owns={state2.open2 ? "simple-menu-2" : undefined}
                       aria-haspopup="true"
                       onClick={() => {
@@ -334,7 +287,11 @@ function Header(props) {
                         : null}
                     </Button>
                     <Popper
-                      className={classes.popper}
+                      style={{
+                        minWidth: "25vw",
+                        zIndex: theme.zIndex.drawer + 99,
+                        marginTop: "0.5vh",
+                      }}
                       open={state2.open2}
                       anchorEl={state2.anchorEl2}
                       id="menu-list-grow-2"
@@ -363,7 +320,7 @@ function Header(props) {
                         >
                           <MenuItem
                             onClick={handleMenuClose2}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Plastische Chirurgie"
@@ -377,7 +334,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose2}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Kosmetologische Verfahren"
@@ -391,7 +348,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose2}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Zahnimplantate"
@@ -405,7 +362,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose2}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Massage"
@@ -419,7 +376,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose2}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Balneologische Verfahren"
@@ -433,7 +390,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose2}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "In-vitro-Fertilisation"
@@ -451,7 +408,7 @@ function Header(props) {
                   </Grid>
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className={classes.menuBtn}
+                      className="menuBtn"
                       aria-owns={state3.anchorEl3 ? "simple-menu-3" : undefined}
                       aria-haspopup="true"
                       // onClick={handleMenuClose2}
@@ -479,7 +436,11 @@ function Header(props) {
                         : null}
                     </Button>
                     <Popper
-                      className={classes.popper}
+                      style={{
+                        minWidth: "25vw",
+                        zIndex: theme.zIndex.drawer + 99,
+                        marginTop: "0.5vh",
+                      }}
                       open={state3.open3}
                       anchorEl={state3.anchorEl3}
                       id="menu-list-grow-3"
@@ -504,7 +465,7 @@ function Header(props) {
                         >
                           <MenuItem
                             onClick={handleMenuClose3}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Registrierung der juristischen Personen"
@@ -518,7 +479,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose3}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Schiedsgerichtsbarkeit"
@@ -537,7 +498,7 @@ function Header(props) {
 
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className={classes.menuBtn}
+                      className="menuBtn"
                       aria-owns={
                         state4.anchorEl4 ? "simple-menu-4 " : undefined
                       }
@@ -567,7 +528,11 @@ function Header(props) {
                         : null}
                     </Button>
                     <Popper
-                      className={classes.popper}
+                      style={{
+                        minWidth: "25vw",
+                        zIndex: theme.zIndex.drawer + 99,
+                        marginTop: "0.5vh",
+                      }}
                       open={state4.open4}
                       anchorEl={state4.anchorEl4}
                       id="menu-list-grow-4"
@@ -592,7 +557,7 @@ function Header(props) {
                         >
                           <MenuItem
                             onClick={handleMenuClose4}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Ärzte einstellen"
@@ -606,7 +571,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose4}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Krankenschwestern einstellen"
@@ -620,7 +585,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose4}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Sommeraktivitäten"
@@ -634,7 +599,7 @@ function Header(props) {
                           </MenuItem>
                           <MenuItem
                             onClick={handleMenuClose4}
-                            className={classes.menuItem}
+                            className="menuItem"
                           >
                             {actLanguage === "DEU"
                               ? "Für Studierende"
@@ -659,7 +624,7 @@ function Header(props) {
       </HideOnScroll>
 
       <Backdrop
-        className={classes.backdrop}
+        style={{ zIndex: 5, color: "#fff" }}
         open={openBackdrop}
         onClick={handleCloseBackdrop}
       />
