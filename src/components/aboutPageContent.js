@@ -43,7 +43,10 @@ export default function AboutPageContent() {
         variant="body1"
         align="center"
         color="primary"
-        style={{ fontWeight: "bold", marginBottom: "5%" }}
+        style={{
+          // fontWeight: "bold",
+          marginBottom: "5%",
+        }}
       >
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis magnam
         harum repellat quasi et reprehenderit laborum! At fugiat, odio, eos nam

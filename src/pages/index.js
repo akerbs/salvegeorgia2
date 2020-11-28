@@ -3,6 +3,7 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
 import IndexPageContent from "../components/indexPageContent"
+
 const window = require("global/window")
 
 export default function IndexPage() {
@@ -10,12 +11,25 @@ export default function IndexPage() {
     window.scrollTo(0, 0)
   }, [])
 
+  const [showAfterLoading, setShowAfterLoading] = useState(false)
+
+  function startShowAfterLoading() {
+    setShowAfterLoading(true)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      startShowAfterLoading()
+    }, 250)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div style={{ minHeight: "100vh", padding: 0 }}>
       <SEO title="Home" />
       <Header />
-      <IndexPageContent />
-      <Footer />
+      {showAfterLoading && <IndexPageContent />}
+      {showAfterLoading && <Footer />}
     </div>
   )
 }
