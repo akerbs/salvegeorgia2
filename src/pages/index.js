@@ -11,12 +11,25 @@ export default function IndexPage() {
     window.scrollTo(0, 0)
   }, [])
 
+  const [showAfterLoading, setShowAfterLoading] = useState(false)
+
+  function startShowAfterLoading() {
+    setShowAfterLoading(true)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      startShowAfterLoading()
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div style={{ minHeight: "100vh", padding: 0 }}>
       <SEO title="Home" />
       <Header />
-      <IndexPageContent />
-      <Footer />
+      {showAfterLoading && <IndexPageContent />}
+      {showAfterLoading && <Footer />}
     </div>
   )
 }
