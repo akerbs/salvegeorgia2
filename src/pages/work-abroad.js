@@ -12,25 +12,12 @@ export default function () {
     window.scrollTo(0, 0)
   }, [])
 
-  const [showAfterLoading4, setShowAfterLoading4] = useState(false)
-
-  function startShowAfterLoading4() {
-    setShowAfterLoading4(true)
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      startShowAfterLoading4()
-    }, 250)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <div style={{ padding: 0, margin: 0 }}>
       <SEO title="Legal service" />
       <Header />
-      {showAfterLoading4 && <WorkAbroadPageContent />}
-      {showAfterLoading4 && <Footer />}
+      <WorkAbroadPageContent />
+      <Footer />
     </div>
   )
 }

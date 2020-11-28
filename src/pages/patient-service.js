@@ -12,25 +12,12 @@ export default function () {
     window.scrollTo(0, 0)
   }, [])
 
-  const [showAfterLoading2, setShowAfterLoading2] = useState(false)
-
-  function startShowAfterLoading2() {
-    setShowAfterLoading2(true)
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      startShowAfterLoading2()
-    }, 250)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <div style={{ padding: 0, margin: 0 }}>
       <SEO title="Patient service" />
       <Header />
-      {showAfterLoading2 && <PatientServicePageContent />}
-      {showAfterLoading2 && <Footer />}
+      <PatientServicePageContent />
+      <Footer />
     </div>
   )
 }
