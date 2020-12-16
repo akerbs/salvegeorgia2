@@ -36,14 +36,12 @@ const Layout = ({ children }) => {
   const [headerHeight, setHeaderHeight] = useState(null)
 
   useEffect(() => {
-    console.log(`headerHeight:   ${Math.round(headerHeight)}px`)
+    alert(`headerHeight:   ${Math.round(headerHeight)}px`)
   }, [headerHeight])
 
   function handleHeaderHeightChange(value) {
     if (!!value) setHeaderHeight(value)
   }
-
-
 
   return (
     <div style={{ backgroundColor: "#fff" }}>

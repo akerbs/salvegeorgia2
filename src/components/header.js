@@ -166,7 +166,6 @@ function Header(props) {
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar
-          ref={measuredRef}
           position="fixed"
           style={{
             backgroundColor: theme.palette.primary.main,
@@ -179,7 +178,10 @@ function Header(props) {
             [classes.appBarShiftToLeft]: openDrawer,
           })}
         >
-          <Toolbar style={{ borderBottom: "0.5vh solid black" }}>
+          <Toolbar
+            style={{ borderBottom: "0.5vh solid black" }}
+            ref={measuredRef}
+          >
             <Grid container spacing={1}>
               <Grid
                 item
