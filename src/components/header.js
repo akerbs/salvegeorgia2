@@ -155,6 +155,7 @@ function Header(props) {
     })
   }
   const { handleHeaderHeightChange } = useContext(HeaderHeightContext)
+
   const measuredRef = React.useCallback(node => {
     if (node !== null) {
       handleHeaderHeightChange(node.getBoundingClientRect().height)

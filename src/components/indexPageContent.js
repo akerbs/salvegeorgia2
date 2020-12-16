@@ -8,7 +8,12 @@ export default function IndexPageContent() {
   const { headerHeight } = useContext(HeaderHeightContext)
 
   return (
-    <div style={{ marginTop: headerHeight, padding: 0 }}>
+    <div
+      style={{
+        marginTop: headerHeight,
+        padding: 0,
+      }}
+    >
       <ComplexButtons />
     </div>
   )
