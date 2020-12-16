@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { fade, useTheme } from "@material-ui/core/styles"
+import { fade, useTheme, makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import { LanguageContext } from "./layout"
 
@@ -15,10 +15,106 @@ import SendIcon from "@material-ui/icons/Send"
 import Select from "@material-ui/core/Select"
 import MenuItem from "@material-ui/core/MenuItem"
 import InputLabel from "@material-ui/core/InputLabel"
-import "./form.css"
+// import "./form.css"
 const window = require("global/window")
 
+const foolWidth = window.innerWidth <= 599 ? 288 : 380
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: foolWidth,
+    margin: "0 auto ",
+    boxShadow: "0 0 5px rgba(0, 0, 0, 0.5)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+  },
+
+  btn: {
+    textTransform: "none",
+    width: 360,
+    [theme.breakpoints.down("xs")]: {
+      width: 268,
+    },
+  },
+
+  textfield: {
+    width: 360,
+    [theme.breakpoints.down("xs")]: {
+      width: 268,
+    },
+    // marginBottom: "1%",
+    "& .MuiOutlinedInput-inputMarginDense": {
+      // padding: "8px 12px",
+      margin: 0,
+
+      // maxHeight: 36,
+    },
+
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderWidth: 1,
+        borderColor: "#e0e0e0",
+      },
+      "&:hover fieldset": {
+        borderColor: "#e0e0e0",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
+        borderWidth: 1,
+        boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 4px`,
+      },
+    },
+
+    // padding: "8px 12px",
+  },
+
+  textfieldFullWidth: {
+    width: foolWidth,
+  },
+
+  textfieldError: {
+    "& .MuiOutlinedInput-root": {
+      color: "rgb(220,39,39)",
+
+      "& fieldset": {
+        borderWidth: 1,
+        borderColor: "rgb(220,39,39)",
+      },
+      "&:hover fieldset": {
+        borderColor: "rgb(220,39,39)",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+    "& .Mui-focused": {
+      color: "black",
+    },
+  },
+
+  errorMsg: {
+    fontSize: 13,
+    fontWeight: "500",
+    color: "rgb(220,39,39)",
+  },
+
+  selectMenu: {
+    // width: selectMenuWidth,
+    // padding: "10.5px 14px",
+    margin: 0,
+    fontSize: 16,
+  },
+  menuItem: {
+    "& li": {
+      fontSize: "0.8rem",
+    },
+  },
+}))
+
 export default function (props) {
+  const classes = useStyles()
   const theme = useTheme()
 
   const { actLanguage } = useContext(LanguageContext)
@@ -260,7 +356,7 @@ export default function (props) {
     }
   }
   return (
-    <div className="root">
+    <div className={classes.root}>
       <CssBaseline />
       <Typography
         variant="body1"
@@ -290,8 +386,8 @@ export default function (props) {
         <FormControl
           variant="outlined"
           className={clsx(
-            "textfield",
-            errorForm.sex_grad_select && "textfieldError"
+            classes.textfield,
+            errorForm.sex_grad_select && classes.textfieldError
           )}
         >
           <TextField
@@ -323,7 +419,7 @@ export default function (props) {
                 //     fontSize: "0.8rem",
                 //   },
                 // },
-                className: "menuItem",
+                className: classes.menuItem,
               },
             }}
             InputProps={{
@@ -336,7 +432,7 @@ export default function (props) {
             value={form.sex_grad_select}
             onChange={changeHandler}
           >
-            <MenuItem value={"Mr."} key={"Mr."} className="menuItem">
+            <MenuItem value={"Mr."} key={"Mr."} className={classes.menuItem}>
               {actLanguage === "DEU"
                 ? "Herr"
                 : actLanguage === "RUS"
@@ -347,7 +443,7 @@ export default function (props) {
                 ? "Mr."
                 : "Mr."}
             </MenuItem>
-            <MenuItem value={"Mrs."} key={"Mrs."} className="menuItem">
+            <MenuItem value={"Mrs."} key={"Mrs."} className={classes.menuItem}>
               {actLanguage === "DEU"
                 ? "Frau"
                 : actLanguage === "RUS"
@@ -359,7 +455,7 @@ export default function (props) {
                 : "Mrs."}
             </MenuItem>
             {actLanguage === "ENG" && (
-              <MenuItem value={"Ms."} key={"Ms."} className="menuItem">
+              <MenuItem value={"Ms."} key={"Ms."} className={classes.menuItem}>
                 Ms.
               </MenuItem>
             )}
@@ -368,8 +464,8 @@ export default function (props) {
 
         <FormControl
           className={clsx(
-            "textfield",
-            errorForm.first_name && "textfieldError"
+            classes.textfield,
+            errorForm.first_name && classes.textfieldError
           )}
         >
           <TextField
@@ -396,7 +492,10 @@ export default function (props) {
         </FormControl>
 
         <FormControl
-          className={clsx("textfield", errorForm.last_name && "textfieldError")}
+          className={clsx(
+            classes.textfield,
+            errorForm.last_name && classes.textfieldError
+          )}
         >
           <TextField
             type="text"
@@ -422,7 +521,10 @@ export default function (props) {
         </FormControl>
 
         <FormControl
-          className={clsx("textfield", errorForm.phone && "textfieldError")}
+          className={clsx(
+            classes.textfield,
+            errorForm.phone && classes.textfieldError
+          )}
         >
           <TextField
             type="phone"
@@ -447,7 +549,10 @@ export default function (props) {
         </FormControl>
 
         <FormControl
-          className={clsx("textfield", errorForm.email && "textfieldError")}
+          className={clsx(
+            classes.textfield,
+            errorForm.email && classes.textfieldError
+          )}
         >
           <TextField
             type="email"
@@ -474,8 +579,8 @@ export default function (props) {
         <FormControl
           variant="outlined"
           className={clsx(
-            "textfield",
-            errorForm.service_select && "textfieldError"
+            classes.textfield,
+            errorForm.service_select && classes.textfieldError
           )}
         >
           <TextField
@@ -507,7 +612,7 @@ export default function (props) {
                 //     fontSize: "0.8rem",
                 //   },
                 // },
-                className: "menuItem",
+                className: classes.menuItem,
               },
             }}
             InputProps={{
@@ -523,7 +628,7 @@ export default function (props) {
             <MenuItem
               value={"Registration of legal entities"}
               key={"Registration of legal entities"}
-              className="menuItem"
+              className={classes.menuItem}
             >
               {actLanguage === "DEU"
                 ? "Registrierung der juristischen Personen"
@@ -538,7 +643,7 @@ export default function (props) {
             <MenuItem
               value={"Arbitration"}
               key={"Arbitration"}
-              className="menuItem"
+              className={classes.menuItem}
             >
               {actLanguage === "DEU"
                 ? "Schiedsgerichtsbarkeit"
@@ -574,7 +679,7 @@ export default function (props) {
           type="submit"
           variant="contained"
           disabled={loading}
-          className="btn"
+          className={classes.btn}
           endIcon={
             <SendIcon
               style={{
