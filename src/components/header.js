@@ -27,7 +27,7 @@ import MenuList from "@material-ui/core/MenuList"
 import Backdrop from "@material-ui/core/Backdrop"
 import { LanguageContext } from "./layout"
 import { HeaderHeightContext } from "./layout"
-import "./header.css"
+// import "./header.css"
 
 const document = require("global/document")
 const window = require("global/window")
@@ -56,6 +56,28 @@ const useStyles = makeStyles(theme => ({
     }),
   },
 
+  link: {
+    color: "white",
+    textDecoration: "none",
+    "&:visited": {
+      color: "white",
+    },
+    "&:active": {
+      color: "#38acf4",
+    },
+  },
+  menuBtn: {
+    "&:hover": {
+      fontWeight: "bold",
+      color: "white",
+    },
+  },
+  menuItem: {
+    "&:hover": {
+      fontWeight: "bold",
+      color: " #0798f2",
+    },
+  },
   hide: {
     display: "none",
   },
@@ -198,7 +220,11 @@ function Header(props) {
                     color: "white",
                   }}
                 >
-                  <Link to="/" className="link" style={{ color: "white" }}>
+                  <Link
+                    to="/"
+                    className={classes.link}
+                    style={{ color: "white" }}
+                  >
                     <b> salvegeorgia.com</b>
                   </Link>
                 </Typography>
@@ -235,7 +261,7 @@ function Header(props) {
                 >
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className="menuBtn"
+                      className={classes.menuBtn}
                       // aria-owns={anchorEl1 ? "simple-menu-1" : undefined}
                       // aria-haspopup="true"
                       onClick={() => {
@@ -260,7 +286,7 @@ function Header(props) {
                   </Grid>
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className="menuBtn"
+                      className={classes.menuBtn}
                       aria-owns={state2.open2 ? "simple-menu-2" : undefined}
                       aria-haspopup="true"
                       onClick={() => {
@@ -315,7 +341,7 @@ function Header(props) {
                           MenuListProps={{ onMouseLeave: handleMenuClose2 }}
                         >
                           <MenuItem
-                            className="menuItem"
+                            className={classes.menuItem}
                             onClick={() => {
                               navigate("/patient-service")
                               handleMenuClose2()
@@ -332,7 +358,7 @@ function Header(props) {
                               : "Plastic surgery"}
                           </MenuItem>
                           <MenuItem
-                            className="menuItem"
+                            className={classes.menuItem}
                             onClick={() => {
                               navigate("/patient-service")
                               handleMenuClose2()
@@ -349,7 +375,7 @@ function Header(props) {
                               : "Cosmetology procedures"}
                           </MenuItem>
                           <MenuItem
-                            className="menuItem"
+                            className={classes.menuItem}
                             onClick={() => {
                               navigate("/patient-service")
                               handleMenuClose2()
@@ -366,7 +392,7 @@ function Header(props) {
                               : "Dental implants"}
                           </MenuItem>
                           <MenuItem
-                            className="menuItem"
+                            className={classes.menuItem}
                             onClick={() => {
                               navigate("/patient-service")
                               handleMenuClose2()
@@ -383,7 +409,7 @@ function Header(props) {
                               : "Massage"}
                           </MenuItem>
                           <MenuItem
-                            className="menuItem"
+                            className={classes.menuItem}
                             onClick={() => {
                               navigate("/patient-service")
                               handleMenuClose2()
@@ -400,7 +426,7 @@ function Header(props) {
                               : "Balneological procedures"}
                           </MenuItem>
                           <MenuItem
-                            className="menuItem"
+                            className={classes.menuItem}
                             onClick={() => {
                               navigate("/patient-service")
                               handleMenuClose2()
@@ -422,7 +448,7 @@ function Header(props) {
                   </Grid>
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className="menuBtn"
+                      className={classes.menuBtn}
                       aria-owns={state3.anchorEl3 ? "simple-menu-3" : undefined}
                       aria-haspopup="true"
                       onClick={() => {
@@ -484,7 +510,7 @@ function Header(props) {
                               navigate("/legal-service")
                               handleMenuClose3()
                             }}
-                            className="menuItem"
+                            className={classes.menuItem}
                           >
                             {actLanguage === "DEU"
                               ? "Registrierung der juristischen Personen"
@@ -501,7 +527,7 @@ function Header(props) {
                               navigate("/legal-service")
                               handleMenuClose3()
                             }}
-                            className="menuItem"
+                            className={classes.menuItem}
                           >
                             {actLanguage === "DEU"
                               ? "Schiedsgerichtsbarkeit"
@@ -520,7 +546,7 @@ function Header(props) {
 
                   <Grid item xs={3} style={{ textAlign: "center" }}>
                     <Button
-                      className="menuBtn"
+                      className={classes.menuBtn}
                       aria-owns={
                         state4.anchorEl4 ? "simple-menu-4 " : undefined
                       }
@@ -584,7 +610,7 @@ function Header(props) {
                               navigate("/work-abroad")
                               handleMenuClose4()
                             }}
-                            className="menuItem"
+                            className={classes.menuItem}
                           >
                             {actLanguage === "DEU"
                               ? "Ärzte einstellen"
@@ -601,7 +627,7 @@ function Header(props) {
                               navigate("/work-abroad")
                               handleMenuClose4()
                             }}
-                            className="menuItem"
+                            className={classes.menuItem}
                           >
                             {actLanguage === "DEU"
                               ? "Krankenschwestern einstellen"
@@ -618,7 +644,7 @@ function Header(props) {
                               navigate("/work-abroad")
                               handleMenuClose4()
                             }}
-                            className="menuItem"
+                            className={classes.menuItem}
                           >
                             {actLanguage === "DEU"
                               ? "Sommeraktivitäten"
@@ -635,7 +661,7 @@ function Header(props) {
                               navigate("/work-abroad")
                               handleMenuClose4()
                             }}
-                            className="menuItem"
+                            className={classes.menuItem}
                           >
                             {actLanguage === "DEU"
                               ? "Für Studierende"
