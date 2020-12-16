@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
-import { useTheme } from "@material-ui/core/styles"
+import { useTheme, makeStyles } from "@material-ui/core/styles"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import { Link } from "gatsby"
@@ -11,13 +11,24 @@ import inView from "in-view"
 import Slide from "@material-ui/core/Slide"
 import { LanguageContext } from "./layout"
 
-import "./footer.css"
+// import "./footer.css"
 const window = require("global/window")
 const footerPadding =
   window.innerWidth <= 959 ? "18% 10% 0% 10%" : "7% 2% 0% 7%"
 const lastLineMarginTop = window.innerWidth <= 959 ? "15% " : "5% "
 
+const useStyles = makeStyles(theme => ({
+  footerLink: {
+    textDecoration: "none",
+    color: "black",
+    "&:hover": {
+      color: "white",
+    },
+  },
+}))
+
 export default function Footer() {
+  const classes = useStyles()
   const [show, setShow] = useState(false)
   const { actLanguage } = useContext(LanguageContext)
   const theme = useTheme()
@@ -81,7 +92,7 @@ export default function Footer() {
                 <Typography variant="caption">
                   <Link
                     to="/patient-service"
-                    className="footer_link"
+                    className={classes.footerLink}
                     key={"Patient service"}
                   >
                     {actLanguage === "DEU"
@@ -97,7 +108,7 @@ export default function Footer() {
                   <br />
                   <Link
                     to="/legal-service"
-                    className="footer_link"
+                    className={classes.footerLink}
                     key={"Legal service"}
                   >
                     {actLanguage === "DEU"
@@ -113,7 +124,7 @@ export default function Footer() {
                   <br />
                   <Link
                     to="/work-abroad"
-                    className="footer_link"
+                    className={classes.footerLink}
                     key={"Work abroad"}
                   >
                     {actLanguage === "DEU"
@@ -128,7 +139,11 @@ export default function Footer() {
                   </Link>
                   <br />
 
-                  <Link to="/about" className="footer_link" key={"About us"}>
+                  <Link
+                    to="/about"
+                    className={classes.footerLink}
+                    key={"About us"}
+                  >
                     {actLanguage === "DEU"
                       ? "Über uns"
                       : actLanguage === "GEO"
@@ -153,10 +168,10 @@ export default function Footer() {
                     ? "FOLLOW US"
                     : "FOLLOW US"}
                 </Typography>
-                <Link to="#" className="footer_link">
+                <Link to="#" className={classes.footerLink}>
                   <FacebookIcon />
                 </Link>
-                <Link to="#" className="footer_link">
+                <Link to="#" className={classes.footerLink}>
                   <InstagramIcon />
                 </Link>
               </Grid>
