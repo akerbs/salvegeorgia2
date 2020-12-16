@@ -7,7 +7,7 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import WorkAbroadImages from "./workAbroadImages"
 import Grid from "@material-ui/core/Grid"
-import FormWorkAbroad from "./FormWorkAbroad"
+import Form from "./Form"
 const window = require("global/window")
 
 export default function WorkAbroadPageContent() {
@@ -117,7 +117,7 @@ export default function WorkAbroadPageContent() {
           margin: "8vh 0",
         }}
       >
-        <FormWorkAbroad />
+        <Form page="workAbroad" />
       </div>
     </Container>
   )

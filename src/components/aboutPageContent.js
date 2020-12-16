@@ -7,7 +7,7 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import PatientServiceImages from "./patientServiceImages" // !!!! change
 import Grid from "@material-ui/core/Grid"
-import FormLegalService from "./FormLegalService" // !!!! change
+
 const window = require("global/window")
 
 export default function AboutPageContent() {

@@ -7,7 +7,7 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import PatientServiceImages from "./patientServiceImages"
 import Grid from "@material-ui/core/Grid"
-import FormPatientService from "./FormPatientService"
+import Form from "./Form"
 const window = require("global/window")
 
 export default function PatientServicePageContent() {
@@ -139,7 +139,7 @@ export default function PatientServicePageContent() {
           margin: "8vh 0",
         }}
       >
-        <FormPatientService />
+        <Form page="patientService" />
       </div>
     </Container>
   )

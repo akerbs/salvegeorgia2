@@ -419,7 +419,6 @@ export default function (props) {
                 //     fontSize: "0.8rem",
                 //   },
                 // },
-
                 className: classes.menuItem,
               },
             }}
@@ -626,66 +625,196 @@ export default function (props) {
             value={form.service_select}
             onChange={changeHandler}
           >
-            <MenuItem
-              value={"Hiring doctors"}
-              key={"Hiring doctors"}
-              className={classes.menuItem}
-            >
-              {actLanguage === "DEU"
-                ? "Ärzte einstellen"
-                : actLanguage === "GEO"
-                ? "ექიმების დასაქმება "
-                : actLanguage === "RUS"
-                ? "Наем врачей"
-                : actLanguage === "ENG"
-                ? "Hiring doctors"
-                : "Hiring doctors"}
-            </MenuItem>
-            <MenuItem
-              value={"Hiring nurses"}
-              key={"Hiring nurses"}
-              className={classes.menuItem}
-            >
-              {actLanguage === "DEU"
-                ? "Krankenschwestern einstellen"
-                : actLanguage === "GEO"
-                ? "ექთნების დასაქმება"
-                : actLanguage === "RUS"
-                ? "Наем медсестер"
-                : actLanguage === "ENG"
-                ? "Hiring nurses"
-                : "Hiring nurses"}
-            </MenuItem>
-            <MenuItem
-              value={"Summer activities"}
-              key={"Summer activities"}
-              className={classes.menuItem}
-            >
-              {actLanguage === "DEU"
-                ? "Sommeraktivitäten"
-                : actLanguage === "GEO"
-                ? "საზაფხულო საქმიანობა"
-                : actLanguage === "RUS"
-                ? "Летние мероприятия"
-                : actLanguage === "ENG"
-                ? "Summer activities"
-                : "Summer activities"}
-            </MenuItem>
-            <MenuItem
-              value={"For students"}
-              key={"For students"}
-              className={classes.menuItem}
-            >
-              {actLanguage === "DEU"
-                ? "Für Studierende"
-                : actLanguage === "GEO"
-                ? "სტუდენტებისათვის"
-                : actLanguage === "RUS"
-                ? "Для студентов"
-                : actLanguage === "ENG"
-                ? "For students"
-                : "For students"}
-            </MenuItem>
+            {props.page === "legalService" ? (
+              <>
+                <MenuItem
+                  value={"Registration of legal entities"}
+                  key={"Registration of legal entities"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Registrierung der juristischen Personen"
+                    : actLanguage === "GEO"
+                    ? "იურიდიუი პირებისრეგისტრაცია"
+                    : actLanguage === "RUS"
+                    ? "Регистрация юридических лиц"
+                    : actLanguage === "ENG"
+                    ? "Registration of legal entities"
+                    : "Registration of legal entities"}
+                </MenuItem>
+                <MenuItem
+                  value={"Arbitration"}
+                  key={"Arbitration"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Schiedsgerichtsbarkeit"
+                    : actLanguage === "GEO"
+                    ? "არბიტრაჟი"
+                    : actLanguage === "RUS"
+                    ? "Арбитраж"
+                    : actLanguage === "ENG"
+                    ? "Arbitration"
+                    : "Arbitration"}
+                </MenuItem>
+              </>
+            ) : props.page === "patientService" ? (
+              <>
+                <MenuItem
+                  value={"Plastic surgery"}
+                  key={"Plastic surgery"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Plastische Chirurgie"
+                    : actLanguage === "GEO"
+                    ? "პლასტიკური ქირურგია"
+                    : actLanguage === "RUS"
+                    ? " Пластическая хирургия"
+                    : actLanguage === "ENG"
+                    ? "Plastic surgery"
+                    : "Plastic surgery"}
+                </MenuItem>
+                <MenuItem
+                  value={"Cosmetology procedures"}
+                  key={"Cosmetology procedures"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Kosmetologische Verfahren"
+                    : actLanguage === "GEO"
+                    ? "კოსმეტოლოგიური პროცედურები"
+                    : actLanguage === "RUS"
+                    ? "Косметологические процедуры"
+                    : actLanguage === "ENG"
+                    ? "Cosmetology procedures"
+                    : "Cosmetology procedures"}
+                </MenuItem>
+                <MenuItem
+                  value={"Dental implants"}
+                  key={"Dental implants"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Zahnimplantate"
+                    : actLanguage === "GEO"
+                    ? "კბილის იმპლანტები"
+                    : actLanguage === "RUS"
+                    ? "Зубные имплантаты"
+                    : actLanguage === "ENG"
+                    ? "Dental implants"
+                    : "Dental implants"}
+                </MenuItem>
+                <MenuItem
+                  value={"Massage"}
+                  key={"Massage"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Massage"
+                    : actLanguage === "GEO"
+                    ? "მასაჟი"
+                    : actLanguage === "RUS"
+                    ? "Массаж"
+                    : actLanguage === "ENG"
+                    ? "Massage"
+                    : "Massage"}
+                </MenuItem>
+                <MenuItem
+                  value={"Balneological procedures"}
+                  key={"Balneological procedures"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Balneologische Verfahren"
+                    : actLanguage === "GEO"
+                    ? "ბალნეოლოგიური პროცედურები"
+                    : actLanguage === "RUS"
+                    ? "Бальнеологические процедуры"
+                    : actLanguage === "ENG"
+                    ? "Balneological procedures"
+                    : "Balneological procedures"}
+                </MenuItem>
+                <MenuItem
+                  value={"In Vitro Fertilization"}
+                  key={"In Vitro Fertilization"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "In-vitro-Fertilisation"
+                    : actLanguage === "GEO"
+                    ? "ინვიტრო განაყოფიერება"
+                    : actLanguage === "RUS"
+                    ? "Экстракорпоральное оплодотворение"
+                    : actLanguage === "ENG"
+                    ? "In Vitro Fertilization"
+                    : "In Vitro Fertilization"}
+                </MenuItem>
+              </>
+            ) : props.page === "workAbroad" ? (
+              <>
+                <MenuItem
+                  value={"Hiring doctors"}
+                  key={"Hiring doctors"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Ärzte einstellen"
+                    : actLanguage === "GEO"
+                    ? "ექიმების დასაქმება "
+                    : actLanguage === "RUS"
+                    ? "Наем врачей"
+                    : actLanguage === "ENG"
+                    ? "Hiring doctors"
+                    : "Hiring doctors"}
+                </MenuItem>
+                <MenuItem
+                  value={"Hiring nurses"}
+                  key={"Hiring nurses"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Krankenschwestern einstellen"
+                    : actLanguage === "GEO"
+                    ? "ექთნების დასაქმება"
+                    : actLanguage === "RUS"
+                    ? "Наем медсестер"
+                    : actLanguage === "ENG"
+                    ? "Hiring nurses"
+                    : "Hiring nurses"}
+                </MenuItem>
+                <MenuItem
+                  value={"Summer activities"}
+                  key={"Summer activities"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Sommeraktivitäten"
+                    : actLanguage === "GEO"
+                    ? "საზაფხულო საქმიანობა"
+                    : actLanguage === "RUS"
+                    ? "Летние мероприятия"
+                    : actLanguage === "ENG"
+                    ? "Summer activities"
+                    : "Summer activities"}
+                </MenuItem>
+                <MenuItem
+                  value={"For students"}
+                  key={"For students"}
+                  className={classes.menuItem}
+                >
+                  {actLanguage === "DEU"
+                    ? "Für Studierende"
+                    : actLanguage === "GEO"
+                    ? "სტუდენტებისათვის"
+                    : actLanguage === "RUS"
+                    ? "Для студентов"
+                    : actLanguage === "ENG"
+                    ? "For students"
+                    : "For students"}
+                </MenuItem>
+              </>
+            ) : null}
           </TextField>
         </FormControl>
 

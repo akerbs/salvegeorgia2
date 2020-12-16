@@ -7,7 +7,7 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import LegalServiceImages from "./legalServiceImages"
 import Grid from "@material-ui/core/Grid"
-import FormLegalService from "./FormLegalService"
+import Form from "./Form"
 const window = require("global/window")
 
 export default function LegalServicePageContent() {
@@ -95,7 +95,7 @@ export default function LegalServicePageContent() {
           margin: "8vh 0",
         }}
       >
-        <FormLegalService />
+        <Form page="legalService" />
       </div>
     </Container>
   )
